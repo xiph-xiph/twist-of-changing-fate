@@ -2,28 +2,28 @@ export default class ConditionWheel {
     constructor(wheelSize = 400, gameManager) {
         this.gameManager = gameManager;
         this.conditions = [
-            { name: "SameRankOrSuit", description: "You can play a card with the same rank or the same suit as the card above.", color: "red", playsUntilForcedSpin: -1, playsUntilFreeSpin: 3, weight: 8 },
-            { name: "RankAscendingOrDescending", description: "You can play a card that is one rank higher or lower than the card above.", color: "blue", playsUntilForcedSpin: -1, playsUntilFreeSpin: 2, weight: 8 },
-            { name: "OddRank", description: "You can only play cards with odd ranks.", color: "green", playsUntilForcedSpin: 5, playsUntilFreeSpin: 3, weight: 2 },
-            { name: "EvenRank", description: "You can only play cards with even ranks.", color: "yellow", playsUntilForcedSpin: 5, playsUntilFreeSpin: 3, weight: 2 },
-            { name: "SameColor", description: "You can only play cards of the same color (red or black).", color: "purple", playsUntilForcedSpin: 5, playsUntilFreeSpin: 3, weight: 2 },
-            { name: "PrimeRank", description: "You can only play cards with prime-numbered ranks (2, 3, 5, or 7).", color: "orange", playsUntilForcedSpin: -1, playsUntilFreeSpin: 2, weight: 2 },
-            { name: "FaceCardsOnly", description: "You can only play face cards (Jack, Queen, King).", color: "pink", playsUntilForcedSpin: -1, playsUntilFreeSpin: 2, weight: 1 },
-            { name: "LowerOrHigherByTwo", description: "You must play a card that is exactly two ranks higher or lower than the card above.", color: "brown", playsUntilForcedSpin: -1, playsUntilFreeSpin: 2, weight: 4 },
-            { name: "NoRepeatSuit", description: "You cannot play a card if its suit has been played before.", color: "cyan", playsUntilForcedSpin: 3, playsUntilFreeSpin: 2, weight: 1 },
-            { name: "OnlyAces", description: "You can only play aces.", color: "magenta", playsUntilForcedSpin: -1, playsUntilFreeSpin: 1, weight: 1 },
-            { name: "OnlyClubs", description: "You can only play Clubs.", color: "lime", playsUntilForcedSpin: -1, playsUntilFreeSpin: 2, weight: 1 },
-            { name: "OnlyDiamonds", description: "You can only play Diamonds.", color: "teal", playsUntilForcedSpin: -1, playsUntilFreeSpin: 2, weight: 1 },
-            { name: "OnlyHearts", description: "You can only play Hearts.", color: "olive", playsUntilForcedSpin: -1, playsUntilFreeSpin: 2, weight: 1 },
-            { name: "OnlySpades", description: "You can only play Spades.", color: "navy", playsUntilForcedSpin: -1, playsUntilFreeSpin: 2, weight: 1 },
-            { name: "MultipleOfThreeRank", description: "You can only play cards with ranks that are multiples of 3 (3, 6, or 9).", color: "maroon", playsUntilForcedSpin: -1, playsUntilFreeSpin: 1, weight: 2 },
-            { name: "MustBeLower", description: "You can only play a card with a lower rank than the card above.", color: "silver", playsUntilForcedSpin: 6, playsUntilFreeSpin: 3, weight: 2 },
-            { name: "MustBeHigher", description: "You can only play a card with a higher rank than the card above.", color: "gold", playsUntilForcedSpin: 6, playsUntilFreeSpin: 3, weight: 2 },
-            { name: "SumToTen", description: "The rank of the played card and the card above must sum to 10.", color: "indigo", playsUntilForcedSpin: -1, playsUntilFreeSpin: 2, weight: 3 },
-            { name: "Wildcard1", description: "For your next play, you can play any card.", color: "violet", playsUntilForcedSpin: 1, playsUntilFreeSpin: -1, weight: 3 },
-            { name: "Wildcard2", description: "For your next two plays, you can play any card.", color: "navy", playsUntilForcedSpin: 2, playsUntilFreeSpin: -1, weight: 1 },
-            { name: "Wildcard3", description: "For your next three plays, you can play any card.", color: "green", playsUntilForcedSpin: 3, playsUntilFreeSpin: -1, weight: 1 },
-            { name: "Wildcard4", description: "For your next four plays, you can play any card.", color: "maroon", playsUntilForcedSpin: 4, playsUntilFreeSpin: -1, weight: 1 }
+            { name: "SameRankOrSuit", description: "You can play a card with the same rank or the same suit as the card above.", playsUntilForcedSpin: -1, playsUntilFreeSpin: 3, weight: 8 },
+            { name: "RankAscendingOrDescending", description: "You can play a card that is one rank higher or lower than the card above.", playsUntilForcedSpin: -1, playsUntilFreeSpin: 2, weight: 8 },
+            { name: "OddRank", description: "You can only play cards with odd ranks.", playsUntilForcedSpin: 5, playsUntilFreeSpin: 3, weight: 2 },
+            { name: "EvenRank", description: "You can only play cards with even ranks.", playsUntilForcedSpin: 5, playsUntilFreeSpin: 3, weight: 2 },
+            { name: "SameColor", description: "You can only play cards of the same color (red or black).", playsUntilForcedSpin: 5, playsUntilFreeSpin: 3, weight: 2 },
+            { name: "PrimeRank", description: "You can only play cards with prime-numbered ranks (2, 3, 5, or 7).", playsUntilForcedSpin: -1, playsUntilFreeSpin: 2, weight: 2 },
+            { name: "FaceCardsOnly", description: "You can only play face cards (Jack, Queen, King).", playsUntilForcedSpin: -1, playsUntilFreeSpin: 2, weight: 1 },
+            { name: "LowerOrHigherByTwo", description: "You must play a card that is exactly two ranks higher or lower than the card above.", playsUntilForcedSpin: -1, playsUntilFreeSpin: 2, weight: 4 },
+            { name: "NoRepeatSuit", description: "You cannot play a card if its suit has been played before.", playsUntilForcedSpin: 3, playsUntilFreeSpin: 2, weight: 1 },
+            { name: "OnlyAces", description: "You can only play aces.", playsUntilForcedSpin: -1, playsUntilFreeSpin: 1, weight: 1 },
+            { name: "OnlyClubs", description: "You can only play Clubs.", playsUntilForcedSpin: -1, playsUntilFreeSpin: 2, weight: 1 },
+            { name: "OnlyDiamonds", description: "You can only play Diamonds.", playsUntilForcedSpin: -1, playsUntilFreeSpin: 2, weight: 1 },
+            { name: "OnlyHearts", description: "You can only play Hearts.", playsUntilForcedSpin: -1, playsUntilFreeSpin: 2, weight: 1 },
+            { name: "OnlySpades", description: "You can only play Spades.", playsUntilForcedSpin: -1, playsUntilFreeSpin: 2, weight: 1 },
+            { name: "MultipleOfThreeRank", description: "You can only play cards with ranks that are multiples of 3 (3, 6, or 9).", playsUntilForcedSpin: -1, playsUntilFreeSpin: 1, weight: 2 },
+            { name: "MustBeLower", description: "You can only play a card with a lower rank than the card above.", playsUntilForcedSpin: 6, playsUntilFreeSpin: 3, weight: 2 },
+            { name: "MustBeHigher", description: "You can only play a card with a higher rank than the card above.", playsUntilForcedSpin: 6, playsUntilFreeSpin: 3, weight: 2 },
+            { name: "SumToTen", description: "The rank of the played card and the card above must sum to 10.", playsUntilForcedSpin: -1, playsUntilFreeSpin: 2, weight: 3 },
+            { name: "Wildcard1", description: "For your next play, you can play any card.", playsUntilForcedSpin: 1, playsUntilFreeSpin: -1, weight: 3 },
+            { name: "Wildcard2", description: "For your next two plays, you can play any card.", playsUntilForcedSpin: 2, playsUntilFreeSpin: -1, weight: 1 },
+            { name: "Wildcard3", description: "For your next three plays, you can play any card.", playsUntilForcedSpin: 3, playsUntilFreeSpin: -1, weight: 1 },
+            { name: "Wildcard4", description: "For your next four plays, you can play any card.", playsUntilForcedSpin: 4, playsUntilFreeSpin: -1, weight: 1 }
         ];
         this.wheelSize = wheelSize;
         this.linkElements();
@@ -128,9 +128,15 @@ export default class ConditionWheel {
     }
 
     drawArcs() {
+        const color1 = "rgb(223, 54, 39)";
+        const color2 = "white";
         this.canvasContext.clearRect(-this.wheelSize / 2, -this.wheelSize / 2, this.wheelSize, this.wheelSize);
         this.conditions.forEach((condition, index) => {
-            this.canvasContext.fillStyle = condition.color;
+            if (index % 2) {
+                this.canvasContext.fillStyle = color1;
+            } else {
+                this.canvasContext.fillStyle = color2;
+            }
             const arcSegment = 2 * Math.PI / this.conditions.length;
             this.canvasContext.beginPath();
             this.canvasContext.moveTo(0, 0);
@@ -139,7 +145,7 @@ export default class ConditionWheel {
         });
     }
 
-    drawCircle() { // Draw the inner circle
+    drawCircle() {
         this.canvasContext.beginPath();
         this.canvasContext.arc(0, 0, this.wheelSize / 2 - 2, 0, 2 * Math.PI);
         this.canvasContext.lineWidth = 4;
