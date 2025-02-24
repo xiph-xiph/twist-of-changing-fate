@@ -5,16 +5,25 @@ import ConditionWheel from "./ConditionWheel.js";
 
 export default class GameManager {
     constructor() {
-        this.initialize();
         this.boundPlayCallback = this.playCard.bind(this);
     }
 
-    initialize() {
-        this.score = 100;
+    async initialize() {
+        try {
+            const response = await fetch("../../config/config.json");
+            this.config = await response.json();
+            this.setupGame();
+        } catch (error) {
+            console.error('Error loading JSON:', error);
+        }
+    }
+
+    setupGame() {
+        this.score = this.config.startingScore;
         this.hand = new Hand({ left: "50%", bottom: "10px" }, false, "center bottom", this);
         this.table = new CardStack({ left: "50%", bottom: "calc(100% - 340px - 10px)" }, false, "center top");
         this.deck = new Deck({ left: "20%", bottom: "calc(50% - 170px)" }, true, "center");
-        this.wheel = new ConditionWheel(350, this);
+        this.wheel = new ConditionWheel(350, this, this.config);
         this.allCards = Array.from(this.deck.cards);
         this.updateScore();
     }
@@ -51,7 +60,7 @@ export default class GameManager {
         this.deck.createElements()
         this.hand.updateCallbacks(this.boundPlayCallback);
         if (!free) {
-            this.updateScore(-5);
+            this.updateScore(this.config.drawCost);
         }
     }
 
@@ -102,7 +111,7 @@ export default class GameManager {
                 card.element.remove();
             }
         });
-        this.initialize();
+        this.setupGame();
         this.startGame();
     }
 

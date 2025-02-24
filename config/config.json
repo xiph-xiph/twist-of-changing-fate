@@ -1,0 +1,162 @@
+{
+    "conditions": [
+    {
+      "name": "SameRankOrSuit",
+      "description": "You can play a card with the same rank or the same suit as the card above.",
+      "playsUntilForcedSpin": -1,
+      "playsUntilFreeSpin": 3,
+      "weight": 8
+    },
+    {
+      "name": "RankAscendingOrDescending",
+      "description": "You can play a card that is one rank higher or lower than the card above.",
+      "playsUntilForcedSpin": -1,
+      "playsUntilFreeSpin": 2,
+      "weight": 8
+    },
+    {
+      "name": "OddRank",
+      "description": "You can only play cards with odd ranks.",
+      "playsUntilForcedSpin": 5,
+      "playsUntilFreeSpin": 3,
+      "weight": 2
+    },
+    {
+      "name": "EvenRank",
+      "description": "You can only play cards with even ranks.",
+      "playsUntilForcedSpin": 5,
+      "playsUntilFreeSpin": 3,
+      "weight": 2
+    },
+    {
+      "name": "SameColor",
+      "description": "You can only play cards of the same color (red or black).",
+      "playsUntilForcedSpin": 5,
+      "playsUntilFreeSpin": 3,
+      "weight": 2
+    },
+    {
+      "name": "PrimeRank",
+      "description": "You can only play cards with prime-numbered ranks (2, 3, 5, or 7).",
+      "playsUntilForcedSpin": -1,
+      "playsUntilFreeSpin": 2,
+      "weight": 2
+    },
+    {
+      "name": "FaceCardsOnly",
+      "description": "You can only play face cards (Jack, Queen, King).",
+      "playsUntilForcedSpin": -1,
+      "playsUntilFreeSpin": 2,
+      "weight": 1
+    },
+    {
+      "name": "LowerOrHigherByTwo",
+      "description": "You must play a card that is exactly two ranks higher or lower than the card above.",
+      "playsUntilForcedSpin": -1,
+      "playsUntilFreeSpin": 2,
+      "weight": 4
+    },
+    {
+      "name": "NoRepeatSuit",
+      "description": "You cannot play a card if its suit has been played before.",
+      "playsUntilForcedSpin": 3,
+      "playsUntilFreeSpin": 2,
+      "weight": 1
+    },
+    {
+      "name": "OnlyAces",
+      "description": "You can only play aces.",
+      "playsUntilForcedSpin": -1,
+      "playsUntilFreeSpin": 1,
+      "weight": 1
+    },
+    {
+      "name": "OnlyClubs",
+      "description": "You can only play Clubs.",
+      "playsUntilForcedSpin": -1,
+      "playsUntilFreeSpin": 2,
+      "weight": 1
+    },
+    {
+      "name": "OnlyDiamonds",
+      "description": "You can only play Diamonds.",
+      "playsUntilForcedSpin": -1,
+      "playsUntilFreeSpin": 2,
+      "weight": 1
+    },
+    {
+      "name": "OnlyHearts",
+      "description": "You can only play Hearts.",
+      "playsUntilForcedSpin": -1,
+      "playsUntilFreeSpin": 2,
+      "weight": 1
+    },
+    {
+      "name": "OnlySpades",
+      "description": "You can only play Spades.",
+      "playsUntilForcedSpin": -1,
+      "playsUntilFreeSpin": 2,
+      "weight": 1
+    },
+    {
+      "name": "MultipleOfThreeRank",
+      "description": "You can only play cards with ranks that are multiples of 3 (3, 6, or 9).",
+      "playsUntilForcedSpin": -1,
+      "playsUntilFreeSpin": 1,
+      "weight": 2
+    },
+    {
+      "name": "MustBeLower",
+      "description": "You can only play a card with a lower rank than the card above.",
+      "playsUntilForcedSpin": 6,
+      "playsUntilFreeSpin": 3,
+      "weight": 2
+    },
+    {
+      "name": "MustBeHigher",
+      "description": "You can only play a card with a higher rank than the card above.",
+      "playsUntilForcedSpin": 6,
+      "playsUntilFreeSpin": 3,
+      "weight": 2
+    },
+    {
+      "name": "SumToTen",
+      "description": "The rank of the played card and the card above must sum to 10.",
+      "playsUntilForcedSpin": -1,
+      "playsUntilFreeSpin": 2,
+      "weight": 3
+    },
+    {
+      "name": "Wildcard",
+      "description": "For your next play, you can play any card.",
+      "playsUntilForcedSpin": 1,
+      "playsUntilFreeSpin": -1,
+      "weight": 3
+    },
+    {
+      "name": "Wildcard",
+      "description": "For your next two plays, you can play any card.",
+      "playsUntilForcedSpin": 2,
+      "playsUntilFreeSpin": -1,
+      "weight": 1
+    },
+    {
+      "name": "Wildcard",
+      "description": "For your next three plays, you can play any card.",
+      "playsUntilForcedSpin": 3,
+      "playsUntilFreeSpin": -1,
+      "weight": 1
+    },
+    {
+      "name": "Wildcard",
+      "description": "For your next four plays, you can play any card.",
+      "playsUntilForcedSpin": 4,
+      "playsUntilFreeSpin": -1,
+      "weight": 1
+    }
+  ],
+    "startingScore": 100,
+    "drawCost": -5,
+    "spinCost": -15
+
+}
