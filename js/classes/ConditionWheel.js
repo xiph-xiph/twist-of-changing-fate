@@ -6,6 +6,7 @@ export default class ConditionWheel {
         this.spinCost = config.spinCost;
         this.linkElements();
         this.spinWheel(true);
+        this.rotateAnimation();
     }
 
 
@@ -129,8 +130,9 @@ export default class ConditionWheel {
     }
 
     rotateAnimation() {
-        this.canvasContext.rotate(0.01);
+        this.canvasContext.rotate(0.007);
         this.drawArcs();
+        this.drawCircle();
         requestAnimationFrame(() => this.rotateAnimation());
     }
 
