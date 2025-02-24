@@ -34,20 +34,25 @@ body {
 
 .playable {
     background-color: rgb(159, 216, 159);
+    cursor: pointer;
 }
 
 .condition-wheel-container {
     position: absolute;
-    bottom: 60%;
-    left: 85%;
-    transform: translateX(-100%) translateY(50%);
+    top: 10%;
+    right: 10%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;;
 }
 
 .condition-text {
-    display: flex;
     justify-content: center;
+    max-width: 300px;
     font-size: 25px;
 }
+
 
 .score-text {
     position: absolute;
@@ -55,4 +60,24 @@ body {
     left: 10px;
     font-size: 25px;
     transform: translateY(100%);
+}
+
+.spin-button {
+    font-size: 25px;
+    padding: 5px;
+    width: 200px;
+    border-radius: 15px;
+    background-color: #4CAF50;
+    filter: drop-shadow(0px 3px 5px rgba(0, 0, 0, 0.5));
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    margin: 10px;
+}
+
+.wheel-text {
+    font-size: 35px;
+    text-shadow: 0px 3px 5px rgba(0, 0, 0, 0.5);
+    font-weight: bold;
+    margin: 10px;
 }

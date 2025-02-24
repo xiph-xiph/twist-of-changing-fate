@@ -124,6 +124,7 @@ export default class ConditionWheel {
         this.canvasContext = this.canvasElement.getContext("2d");
         this.canvasContext.translate(this.wheelSize / 2, this.wheelSize / 2);
         this.drawArcs();
+        this.drawCircle();
     }
 
     drawArcs() {
@@ -136,6 +137,14 @@ export default class ConditionWheel {
             this.canvasContext.arc(0, 0, this.wheelSize / 2, index * arcSegment, (index + 1) * arcSegment);
             this.canvasContext.fill();
         });
+    }
+
+    drawCircle() { // Draw the inner circle
+        this.canvasContext.beginPath();
+        this.canvasContext.arc(0, 0, this.wheelSize / 2 - 2, 0, 2 * Math.PI);
+        this.canvasContext.lineWidth = 4;
+        this.canvasContext.strokeStyle = "black";
+        this.canvasContext.stroke();
     }
 
     rotateAnimation() {
