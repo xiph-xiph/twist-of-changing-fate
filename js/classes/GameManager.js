@@ -51,7 +51,7 @@ export default class GameManager {
         this.deck.createElements()
         this.hand.updateCallbacks(this.boundPlayCallback);
         if (!free) {
-            this.updateScore(-6);
+            this.updateScore(-5);
         }
     }
 
@@ -118,7 +118,7 @@ export default class GameManager {
         alert(`You can play a card if it matches the condition decided by the Turntable of Fate. (on the right)`);
         alert(`If you can't play a card, you can draw a card from the deck (on the left) by clicking it, or you can spin the Turntable of Fate, to be able to play other cards.`);
         alert(`You can see your score on the bottom left.`)
-        alert(`It costs you 6 points to draw a card, and 15 points to spin the Turntable of Fate.`);
+        alert(`It costs you 5 points to draw a card, and 15 points to spin the Turntable of Fate.`);
         alert(`If you play enough cards on the current rule, you will get a free spin!`);
         alert(`Sometimes, you will be forced to spin the Turntable of Fate after a certain number of plays.`);
         alert(`You can also sort your hand by rank or suit, or shuffle it to get a fresh look.`)
