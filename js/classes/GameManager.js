@@ -10,7 +10,7 @@ export default class GameManager {
 
     async initialize() {
         try {
-            const response = await fetch("../../config/config.json");
+            const response = await fetch("/twist-of-changing-fate/config/config.json");
             this.config = await response.json();
             this.setupGame();
         } catch (error) {
