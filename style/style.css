@@ -62,6 +62,14 @@ body {
     transform: translateY(100%);
 }
 
+.feedback-link {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    font-size: 25px;
+}
+
+
 .spin-button {
     font-size: 25px;
     padding: 5px;

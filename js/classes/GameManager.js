@@ -90,6 +90,7 @@ export default class GameManager {
         setTimeout(() => {
             alert("YOU WIN!!!!!!!!!!");
             alert("Your score was: " + this.score);
+            alert("Thanks for playing my game! Click the link on the bottom left to submit feeback");
             alert("Click OK to start over");
             this.restartGame();
         }, 600);
