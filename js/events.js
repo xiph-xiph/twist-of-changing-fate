@@ -4,6 +4,7 @@ const shuffleButton = document.getElementById("shuffleButton");
 const sortButton = document.getElementById("sortButton");
 const spinButton = document.getElementById("spinButton");
 const cycleDeckButton = document.getElementById("cycleDeckButton");
+const helpButton = document.getElementById("helpButton");
 
 let acesAreHigh = acesCheckbox.checked;
 let sortBySuit = sortTypeCheckbox.checked;
@@ -16,6 +17,7 @@ export default function setupEvents(game) {
     sortButton.addEventListener("click", () => { game.sortHand(sortBySuit, acesAreHigh) });
     spinButton.addEventListener("click", () => { game.wheel.spinWheel(false) });
     cycleDeckButton.addEventListener("click", () => { game.cycleDeck() });
+    helpButton.addEventListener("click", () => { game.showHelp() });
 
     document.addEventListener("keydown", (event) => {
         if (event.key === " " || event.key === "Enter") {
