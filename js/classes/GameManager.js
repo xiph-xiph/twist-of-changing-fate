@@ -9,13 +9,25 @@ export default class GameManager {
     }
 
     async initialize() {
+        // getting the config file
         try {
+            // github pages path
             const response = await fetch("/twist-of-changing-fate/config/config.json");
+            if (!response.ok) throw new Error('github path failed');
             this.config = await response.json();
-            this.setupGame();
         } catch (error) {
-            console.error('Error loading JSON:', error);
+            console.warn(error);
+            try {
+                // local path
+                const response = await fetch("../../config/config.json");
+                if (!response.ok) throw new Error('local path failed');
+                this.config = await response.json();
+            } catch (error) {
+                console.error('Error loading JSON:', error);
+            }
         }
+
+        this.setupGame();
     }
 
     setupGame() {
