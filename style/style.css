@@ -62,7 +62,7 @@ body {
     transform: translateX(-50%) translateY(-15%) scale(0.75);
 }
 
-.playButton {
+.play-button {
     background-color: darkgrey;
     position: absolute;
     transform-origin: center bottom;
@@ -70,7 +70,7 @@ body {
     width: 145px;
     height: 45px;
     transition: bottom 0.6s ease, left 0.6s ease, transform-origin 0.3s ease, filter 0.2s ease, transform 0.2s ease;
-    border-radius: 10px;
+    border-radius: 20px;
     filter: drop-shadow(0px 3px 5px rgba(0, 0, 0, 0.5));
     color: rgb(31, 30, 30);
     font-weight: bold;
@@ -118,6 +118,22 @@ body {
     position: absolute;
     top: 10px;
     left: 10px;
+    font-size: 25px;
+    padding: 5px;
+    width: 100px;
+    border-radius: 15px;
+    background-color: #b34949;
+    filter: drop-shadow(0px 3px 5px rgba(0, 0, 0, 0.5));
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    margin: 10px;
+}
+
+.reset-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
     font-size: 25px;
     padding: 5px;
     width: 100px;

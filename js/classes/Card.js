@@ -67,7 +67,7 @@ export default class Card {
 
     createPlayButton() {
         this.playButton = document.createElement("button");
-        this.playButton.classList.add("playButton");
+        this.playButton.classList.add("play-button");
         this.playButton.innerText = "Play";
         this.playButton.style.bottom = this.element.style.bottom;
         this.playButton.style.left = this.element.style.left;
