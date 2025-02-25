@@ -24,9 +24,6 @@ export default function setupEvents(game) {
             game.playCard();
         }
     });
-
-    window.addEventListener("load", () => {
-        wheel.rotateAnimation();
-    });
+    game.wheel.rotateAnimation();
 }
 
