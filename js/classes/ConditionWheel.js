@@ -54,9 +54,9 @@ export default class ConditionWheel {
     }
 
     // checks if the wheel should be respun, then respins the wheel if necessary
-    respinWheel(free = false, firstSpin = false) {
+    respinWheel(firstSpin = false) {
         while (this.shouldRespin(firstSpin)) {
-            this.spinWheel(free, firstSpin);
+            this.spinWheel(true, firstSpin);
         }
     }
 

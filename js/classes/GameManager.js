@@ -152,7 +152,7 @@ export default class GameManager {
         }
         setTimeout(() => {
             this.drawCard(this.table, true);
-            this.wheel.respinWheel(true, true);
+            this.wheel.respinWheel(true);
             this.wheel.updateElements();
         }, this.config.initialHandSize * 300);
     }
