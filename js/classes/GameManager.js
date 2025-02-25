@@ -164,5 +164,13 @@ export default class GameManager {
 
     updateZoom() {
         this.gameContainer.style.zoom = window.innerWidth / 1920;
+        let hasTouchScreen = false;
+        if ("maxTouchPoints" in navigator) {
+            hasTouchScreen = navigator.maxTouchPoints > 0;
+        }
+        if (hasTouchScreen) {
+            document.body.style.transform = "translateY(20%)";
+        }
+
     }
 }
