@@ -79,7 +79,6 @@ export default class GameManager {
     playCard() {
         if (this.hand.selectedCard) {
             if (this.wheel.canPlayCard(this.hand.selectedCard, this.table)) {
-                console.log("Playing " + this.hand.selectedCard.name);
                 this.table.addCards(this.hand.detachCard(this.hand.selectedCard));
                 this.table.updateElements();
                 this.wheel.playsUntilForcedSpin--;
@@ -91,11 +90,8 @@ export default class GameManager {
                 }
                 this.wheel.updateElements();
             } else {
-                console.log(this.hand.selectedCard.name + " can not be played");
                 return;
             }
-        } else {
-            console.log("No card selected");
         }
         this.hand.updateCallbacks(this.boundPlayCallback);
         this.checkForWin();

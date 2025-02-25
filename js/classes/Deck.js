@@ -34,7 +34,6 @@ export default class Deck extends CardStack {
     // Transfers the click handler that's on the top card to the one below that
     transferClickHandler() {
         if (!this.secondCard) {
-            console.log("No card under this one");
             this.topCard.onClickCallback = null;
             return;
         }

@@ -63,7 +63,6 @@ export default class ConditionWheel {
 
     shouldRespin(firstSpin) {
         if (!this.anyCardIsPlayableInStack(this.gameManager.hand)) {
-            console.log(`${this.currentCondition.name} is unplayable`);
             const random = Math.random();
             if (firstSpin) {
                 if (this.unplayableRespinChanceFirstSpin >= random) {
@@ -186,7 +185,6 @@ export default class ConditionWheel {
     }
 
     updateElements() {
-        console.log("Updating elements");
         this.conditionNameTextElement.innerText = this.currentCondition.name + ":";
         this.conditionDescriptionTextElement.innerText = this.currentCondition.description;
 
