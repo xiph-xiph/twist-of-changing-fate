@@ -107,7 +107,8 @@ export default class GameManager {
         this.checkForLoss();
     }
 
-    tryToSpinWheel(free = false) {
+    tryToSpinWheel(forceFree = false) {
+        let free = this.wheel.playsUntilFreeSpin === 0 || forceFree;
         if (this.score < 15 && !free) {
             alert("It costs 15 points to spin the wheel! You don't have enough left!");
             return;
@@ -149,9 +150,15 @@ export default class GameManager {
     }
 
     checkForLoss() {
-        if (this.score < 5 && !this.wheel.anyCardIsPlayableInStack(this.hand) && (this.wheel.playsUntilForcedSpin === 0 || this.wheel.playsUntilFreeSpin === 0)) {
-            alert("You have no playable cards left! You lose! Click OK to start over.");
-            this.restartGame();
+        if (this.score < 5 && !this.wheel.anyCardIsPlayableInStack(this.hand) && !(this.wheel.playsUntilForcedSpin === 0 || this.wheel.playsUntilFreeSpin === 0)) {
+            console.log(this.score);
+            console.log(this.wheel.anyCardIsPlayableInStack(this.hand));
+            console.log(this.wheel.playsUntilForcedSpin);
+            console.log(this.wheel.playsUntilFreeSpin);
+            setTimeout(() => {
+                alert("You have no playable cards left! You lose! Click OK to start over.");
+                this.restartGame();
+            }, 800);
         }
     }
 
