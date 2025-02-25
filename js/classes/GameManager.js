@@ -122,6 +122,8 @@ export default class GameManager {
                 card.element.remove();
             }
         });
+        this.wheel.currentCondition = null;
+        this.wheel.updateElements();
         this.setupGame();
         this.startGame();
     }

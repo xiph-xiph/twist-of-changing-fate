@@ -185,21 +185,28 @@ export default class ConditionWheel {
     }
 
     updateElements() {
-        this.conditionNameTextElement.innerText = this.currentCondition.name + ":";
-        this.conditionDescriptionTextElement.innerText = this.currentCondition.description;
+        if (this.currentCondition) {
+            this.conditionNameTextElement.innerText = this.currentCondition.name + ":";
+            this.conditionDescriptionTextElement.innerText = this.currentCondition.description;
 
-        if (this.playsUntilFreeSpin < 0) {
+            if (this.playsUntilFreeSpin < 0) {
+                this.turnsUntilFreeSpinTextElement.innerText = "";
+            } else if (this.playsUntilFreeSpin === 0) {
+                this.turnsUntilFreeSpinTextElement.innerText = "Free Spin!";
+            } else {
+                this.turnsUntilFreeSpinTextElement.innerText = "Free Spin in " + this.playsUntilFreeSpin + " play(s)";
+
+            }
+            if (this.playsUntilForcedSpin < 0) {
+                this.turnUntilForcedSpinTextElement.innerText = "";
+            } else {
+                this.turnUntilForcedSpinTextElement.innerText = "Forced Spin in " + this.playsUntilForcedSpin + " play(s)";
+            }
+        } else {
+            this.conditionNameTextElement.innerText = "";
+            this.conditionDescriptionTextElement.innerText = "";
             this.turnsUntilFreeSpinTextElement.innerText = "";
-        } else if (this.playsUntilFreeSpin === 0) {
-            this.turnsUntilFreeSpinTextElement.innerText = "Free Spin!";
-        } else {
-            this.turnsUntilFreeSpinTextElement.innerText = "Free Spin in " + this.playsUntilFreeSpin + " play(s)";
-
-        }
-        if (this.playsUntilForcedSpin < 0) {
             this.turnUntilForcedSpinTextElement.innerText = "";
-        } else {
-            this.turnUntilForcedSpinTextElement.innerText = "Forced Spin in " + this.playsUntilForcedSpin + " play(s)";
         }
     }
 }
