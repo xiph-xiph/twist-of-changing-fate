@@ -39,14 +39,14 @@
       "name": "PrimeRank",
       "description": "You can only play cards with prime-numbered ranks (2, 3, 5, or 7).",
       "playsUntilForcedSpin": -1,
-      "playsUntilFreeSpin": 1,
+      "playsUntilFreeSpin": 2,
       "weight": 2
     },
     {
       "name": "FaceCardsOnly",
       "description": "You can only play face cards (Jack, Queen, King).",
       "playsUntilForcedSpin": -1,
-      "playsUntilFreeSpin": 1,
+      "playsUntilFreeSpin": 2,
       "weight": 1
     },
     {
@@ -69,42 +69,42 @@
       "description": "You can only play aces.",
       "playsUntilForcedSpin": -1,
       "playsUntilFreeSpin": 1,
-      "weight": 1
+      "weight": 2
     },
     {
       "name": "OnlyClubs",
       "description": "You can only play Clubs.",
       "playsUntilForcedSpin": -1,
       "playsUntilFreeSpin": 2,
-      "weight": 1
+      "weight": 2
     },
     {
       "name": "OnlyDiamonds",
       "description": "You can only play Diamonds.",
       "playsUntilForcedSpin": -1,
       "playsUntilFreeSpin": 2,
-      "weight": 1
+      "weight": 2
     },
     {
       "name": "OnlyHearts",
       "description": "You can only play Hearts.",
       "playsUntilForcedSpin": -1,
       "playsUntilFreeSpin": 2,
-      "weight": 1
+      "weight": 2
     },
     {
       "name": "OnlySpades",
       "description": "You can only play Spades.",
       "playsUntilForcedSpin": -1,
       "playsUntilFreeSpin": 2,
-      "weight": 1
+      "weight": 2
     },
     {
       "name": "MultipleOfThreeRank",
       "description": "You can only play cards with ranks that are multiples of 3 (3, 6, or 9).",
       "playsUntilForcedSpin": -1,
-      "playsUntilFreeSpin": 1,
-      "weight": 2
+      "playsUntilFreeSpin": 2,
+      "weight": 4
     },
     {
       "name": "MustBeLower",
@@ -125,7 +125,7 @@
       "description": "The rank of the played card and the card above must sum to 10.",
       "playsUntilForcedSpin": -1,
       "playsUntilFreeSpin": 1,
-      "weight": 3
+      "weight": 4
     },
     {
       "name": "Wildcard",
