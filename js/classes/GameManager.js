@@ -55,6 +55,7 @@ export default class GameManager {
     updateScore(deltaScore = 0) {
         this.score += deltaScore;
         document.getElementById("scoreText").innerText = "Score: " + this.score;
+        this.checkForLoss();
     }
 
     sortHand(sortBySuit, acesAreHigh) {
@@ -67,6 +68,10 @@ export default class GameManager {
     }
 
     drawCard(destination = this.hand, free = false) {
+        if (this.score < 5) {
+            alert("It costs 5 points to draw a card! You don't have enough left!");
+            return;
+        }
         this.deck.transferClickHandler();
         destination.addCards(this.deck.drawCards(1));
         destination.updateElements();
@@ -87,9 +92,7 @@ export default class GameManager {
                 this.table.updateElements();
                 this.wheel.playsUntilForcedSpin--;
                 if (this.wheel.playsUntilForcedSpin == 0) {
-                    this.wheel.spinWheel(true, false);
-                    this.wheel.respinWheel(false);
-                    this.wheel.updateElements();
+                    this.tryToSpinWheel(true);
                 }
                 if (!this.wheel.playsUntilFreeSpin == 0) {
                     this.wheel.playsUntilFreeSpin--;
@@ -101,6 +104,20 @@ export default class GameManager {
         }
         this.hand.updateCallbacks(this.boundPlayCallback);
         this.checkForWin();
+        this.checkForLoss();
+    }
+
+    tryToSpinWheel(free = false) {
+        if (this.score < 15 && !free) {
+            alert("It costs 15 points to spin the wheel! You don't have enough left!");
+            return;
+        }
+        if (!free) {
+            this.updateScore(this.config.spinCost);
+        }
+        this.wheel.spinWheel(false);
+        this.wheel.respinWheel(false);
+        this.wheel.updateElements()
     }
 
     checkForWin() {
@@ -129,6 +146,13 @@ export default class GameManager {
         this.wheel.updateElements();
         this.setupGame();
         this.startGame();
+    }
+
+    checkForLoss() {
+        if (this.score < 5 && !this.wheel.anyCardIsPlayableInStack(this.hand) && (this.wheel.playsUntilForcedSpin === 0 || this.wheel.playsUntilFreeSpin === 0)) {
+            alert("You have no playable cards left! You lose! Click OK to start over.");
+            this.restartGame();
+        }
     }
 
     startGame() {

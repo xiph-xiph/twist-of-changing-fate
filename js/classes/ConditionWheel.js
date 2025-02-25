@@ -3,7 +3,6 @@ export default class ConditionWheel {
         this.gameManager = gameManager;
         this.conditions = config.conditions;
         this.wheelSize = wheelSize;
-        this.spinCost = config.spinCost;
         this.unplayableRespinChance = config.unplayableRespinChance;
         this.unplayableRespinChanceFirstSpin = config.unplayableRespinChanceFirstSpin;
         this.linkElements();
@@ -13,14 +12,6 @@ export default class ConditionWheel {
 
 
     spinWheel(free = false, firstSpin = false) {
-        if (!(free || this?.playsUntilFreeSpin === 0)) {
-            this.gameManager.updateScore(this.spinCost);
-        } else if (!firstSpin) {
-            // if the spin was free, remove the current condition from the list of possible conditions
-            // so that it can't be selected again for the rest of the game
-            // this.conditions = this.conditions.filter((condition) => condition.name !== this.currentCondition.name);
-        }
-
         let totalWeights = 0;
         for (let condition of this.conditions) {
             if (condition.name === this.currentCondition?.name) {
