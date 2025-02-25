@@ -72,6 +72,10 @@ export default class GameManager {
             alert("It costs 5 points to draw a card! You don't have enough left!");
             return;
         }
+        if (destination === this.hand && this.hand.size >= this.config.maxHandSize) {
+            alert(`You can't have more than ${this.config.maxHandSize} cards in your hand!`);
+            return;
+        }
         this.deck.transferClickHandler();
         destination.addCards(this.deck.drawCards(1));
         destination.updateElements();

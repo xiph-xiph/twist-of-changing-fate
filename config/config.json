@@ -179,6 +179,7 @@
   "unplayableRespinChanceFirstSpin": 1,
   "unplayableRespinChance": 1,
   "initialHandSize": 7,
+  "maxHandSize": 10,
   "handWidth": 670,
   "handPosition": {
     "left": "50%",
