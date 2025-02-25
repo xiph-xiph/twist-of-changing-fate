@@ -48,7 +48,6 @@ export default class ConditionWheel {
         }
         this.playsUntilForcedSpin = this.currentCondition?.playsUntilForcedSpin || -1;
         this.playsUntilFreeSpin = this.currentCondition?.playsUntilFreeSpin || -1;
-        console.log(this.currentCondition);
         this.updateElements();
         this.gameManager.hand.updatePlayButton();
     }
