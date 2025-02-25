@@ -10,12 +10,18 @@
 
 <body>
     <div class="game-container">
-        <button id="shuffleButton">Shuffle Hand</button>
-        <button id="sortButton">Sort Hand</button>
-        <button id="cycleDeckButton">Cycle Card Back</button>
         <button id="helpButton" class="help-button">Help!</button>
-        <input type="checkbox" id="acesAreHigh">aces are high?</input>
-        <input type="checkbox" id="sortBySuit">sort by suit?</input>
+        <div class="hand-controls-container">
+            <button id="shuffleButton" class="hand-control-button">Shuffle Hand</button>
+            <button id="sortButton" class="hand-control-button">Sort Hand</button>
+            <label class="checkbox-container">Sort by Suit
+                <input type="checkbox" id="sortBySuit" class="checkbox"></input>
+            </label>
+            <label class="checkbox-container">Aces are High
+                <input type="checkbox" id="acesAreHigh" class="checkbox"></input>
+            </label>
+
+        </div>
         <div class="condition-wheel-container">
             <p id="turnTableOfFateText" class="wheel-text">Turntable of Fate</p>
             <button id="spinButton" class="spin-button">Spin</button>
@@ -32,14 +38,6 @@
             Submit feedback</a>
     </div>
     <script src="js/main.js" type="module"></script>
-    <script>
-        // hide the url bar on mobile
-        window.addEventListener('load', function () {
-            setTimeout(function () {
-                window.scrollTo(0, 1);
-            }, 0);
-        });
-    </script>
 </body>
 
 </html>

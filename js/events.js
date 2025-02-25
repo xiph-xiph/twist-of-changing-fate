@@ -3,7 +3,6 @@ const sortTypeCheckbox = document.getElementById("sortBySuit");
 const shuffleButton = document.getElementById("shuffleButton");
 const sortButton = document.getElementById("sortButton");
 const spinButton = document.getElementById("spinButton");
-const cycleDeckButton = document.getElementById("cycleDeckButton");
 const helpButton = document.getElementById("helpButton");
 
 let acesAreHigh = acesCheckbox.checked;
@@ -16,7 +15,6 @@ export default function setupEvents(game) {
     shuffleButton.addEventListener("click", () => { game.shuffleHand() });
     sortButton.addEventListener("click", () => { game.sortHand(sortBySuit, acesAreHigh) });
     spinButton.addEventListener("click", () => { game.wheel.spinWheel(false, false); game.wheel.respinWheel(false); game.wheel.updateElements() });
-    cycleDeckButton.addEventListener("click", () => { game.cycleDeck() });
     helpButton.addEventListener("click", () => { game.showHelp() });
     window.addEventListener("resize", () => { game.updateZoom(); });
     document.addEventListener("keydown", (event) => {
@@ -24,6 +22,5 @@ export default function setupEvents(game) {
             game.playCard();
         }
     });
-
 }
 
