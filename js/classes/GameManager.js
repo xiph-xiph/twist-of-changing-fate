@@ -103,8 +103,9 @@ export default class GameManager {
             }
         }
         this.hand.updateCallbacks(this.boundPlayCallback);
-        this.checkForWin();
-        this.checkForLoss();
+        if (!this.checkForWin()) {
+            this.checkForLoss();
+        }
     }
 
     tryToSpinWheel(forceFree = false) {
@@ -124,7 +125,9 @@ export default class GameManager {
     checkForWin() {
         if (this.hand.size === 0) {
             this.showWinScreen()
+            return true;
         }
+        return false;
     }
 
     showWinScreen() {
