@@ -80,6 +80,9 @@ export default class GameManager {
     playCard() {
         if (this.hand.selectedCard) {
             if (this.wheel.canPlayCard(this.hand.selectedCard, this.table)) {
+                if (this.wheel.currentCondition.scoreForPlaying) {
+                    this.score += this.wheel.currentCondition.scoreForPlaying;
+                }
                 this.table.addCards(this.hand.detachCard(this.hand.selectedCard));
                 this.table.updateElements();
                 this.wheel.playsUntilForcedSpin--;

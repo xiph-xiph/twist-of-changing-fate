@@ -5,14 +5,16 @@
       "description": "You can play a card with the same rank or the same suit as the card above.",
       "playsUntilForcedSpin": -1,
       "playsUntilFreeSpin": 3,
-      "weight": 8
+      "weight": 12,
+      "scoreForPlaying": 2
     },
     {
       "name": "RankAscendingOrDescending",
       "description": "You can play a card that is one rank higher or lower than the card above.",
       "playsUntilForcedSpin": -1,
       "playsUntilFreeSpin": 2,
-      "weight": 4
+      "weight": 4,
+      "scoreForPlaying": 6
     },
     {
       "name": "OddRank",
@@ -40,21 +42,24 @@
       "description": "You can only play cards with prime-numbered ranks (2, 3, 5, or 7).",
       "playsUntilForcedSpin": -1,
       "playsUntilFreeSpin": 2,
-      "weight": 2
+      "weight": 2,
+      "scoreForPlaying": 4
     },
     {
       "name": "FaceCardsOnly",
       "description": "You can only play face cards (Jack, Queen, King).",
       "playsUntilForcedSpin": -1,
       "playsUntilFreeSpin": 2,
-      "weight": 1
+      "weight": 1,
+      "scoreForPlaying": 5
     },
     {
       "name": "LowerOrHigherByTwo",
       "description": "You must play a card that is exactly two ranks higher or lower than the card above.",
       "playsUntilForcedSpin": -1,
       "playsUntilFreeSpin": 2,
-      "weight": 3
+      "weight": 3,
+      "scoreForPlaying": 7
     },
     {
       "name": "NoRepeatSuit",
@@ -62,49 +67,56 @@
       "playsUntilForcedSpin": 3,
       "playsUntilFreeSpin": -1,
       "weight": 0,
-      "startingWeight": 10
+      "startingWeight": 10,
+      "scoreForPlaying": 5
     },
     {
       "name": "OnlyAces",
       "description": "You can only play aces.",
       "playsUntilForcedSpin": -1,
       "playsUntilFreeSpin": 1,
-      "weight": 2
+      "weight": 2,
+      "scoreForPlaying": 20
     },
     {
       "name": "OnlyClubs",
       "description": "You can only play Clubs.",
       "playsUntilForcedSpin": -1,
       "playsUntilFreeSpin": 2,
-      "weight": 2
+      "weight": 2,
+      "scoreForPlaying": 3
     },
     {
       "name": "OnlyDiamonds",
       "description": "You can only play Diamonds.",
       "playsUntilForcedSpin": -1,
       "playsUntilFreeSpin": 2,
-      "weight": 2
+      "weight": 2,
+      "scoreForPlaying": 3
     },
     {
       "name": "OnlyHearts",
       "description": "You can only play Hearts.",
       "playsUntilForcedSpin": -1,
       "playsUntilFreeSpin": 2,
-      "weight": 2
+      "weight": 2,
+      "scoreForPlaying": 3
     },
     {
       "name": "OnlySpades",
       "description": "You can only play Spades.",
       "playsUntilForcedSpin": -1,
       "playsUntilFreeSpin": 2,
-      "weight": 2
+      "weight": 2,
+      "scoreForPlaying": 3
     },
     {
       "name": "MultipleOfThreeRank",
       "description": "You can only play cards with ranks that are multiples of 3 (3, 6, or 9).",
       "playsUntilForcedSpin": -1,
       "playsUntilFreeSpin": 2,
-      "weight": 4
+      "weight": 4,
+      "scoreForPlaying": 5
     },
     {
       "name": "MustBeLower",
@@ -125,7 +137,8 @@
       "description": "The rank of the played card and the card above must sum to 10.",
       "playsUntilForcedSpin": -1,
       "playsUntilFreeSpin": 1,
-      "weight": 4
+      "weight": 4,
+      "scoreForPlaying": 12
     },
     {
       "name": "Wildcard",
