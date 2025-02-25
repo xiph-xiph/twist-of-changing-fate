@@ -162,5 +162,8 @@
   ],
   "startingScore": 100,
   "drawCost": -5,
-  "spinCost": -15
+  "spinCost": -15,
+  "unplayableRespinChanceFirstSpin": 1,
+  "unplayableRespinChance": 1,
+  "initialHandSize": 7
 }

@@ -130,8 +130,8 @@ export default class GameManager {
     startGame() {
         this.deck.createElements();
         this.distributeCards();
-        setTimeout(() => { this.sortHand() }, 2400);
-        setTimeout(() => { this.enableControls() }, 2400);
+        setTimeout(() => { this.sortHand() }, this.config.initialHandSize * 300 + 300);
+        setTimeout(() => { this.enableControls() }, this.config.initialHandSize * 300 + 300);
     }
 
     showHelp() {
@@ -148,12 +148,16 @@ export default class GameManager {
 
     // Draws 7 cards from deck to hand, and then one card from deck to table
     distributeCards() {
-        for (let i = 0; i < 7; i++) {
+        for (let i = 0; i < this.config.initialHandSize; i++) {
             setTimeout(() => {
                 this.drawCard(this.hand, true);
             }, i * 300);
         }
-        setTimeout(() => { this.drawCard(this.table, true); }, 2100);
+        setTimeout(() => {
+            this.drawCard(this.table, true);
+            this.wheel.respinWheel(true, true);
+            this.wheel.updateElements();
+        }, this.config.initialHandSize * 300);
     }
 
     enableControls() {

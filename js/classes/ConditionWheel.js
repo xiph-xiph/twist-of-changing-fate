@@ -4,6 +4,8 @@ export default class ConditionWheel {
         this.conditions = config.conditions;
         this.wheelSize = wheelSize;
         this.spinCost = config.spinCost;
+        this.unplayableRespinChance = config.unplayableRespinChance;
+        this.unplayableRespinChanceFirstSpin = config.unplayableRespinChanceFirstSpin;
         this.linkElements();
         this.spinWheel(true, true);
         this.rotateAnimation();
@@ -16,7 +18,7 @@ export default class ConditionWheel {
         } else if (!firstSpin) {
             // if the spin was free, remove the current condition from the list of possible conditions
             // so that it can't be selected again for the rest of the game
-            this.conditions = this.conditions.filter((condition) => condition.name !== this.currentCondition.name);
+            // this.conditions = this.conditions.filter((condition) => condition.name !== this.currentCondition.name);
         }
 
         let totalWeights = 0;
@@ -48,8 +50,42 @@ export default class ConditionWheel {
         }
         this.playsUntilForcedSpin = this.currentCondition?.playsUntilForcedSpin || -1;
         this.playsUntilFreeSpin = this.currentCondition?.playsUntilFreeSpin || -1;
-        this.updateElements();
         this.gameManager.hand.updatePlayButton();
+    }
+
+    // checks if the wheel should be respun, then respins the wheel if necessary
+    respinWheel(free = false, firstSpin = false) {
+        while (this.shouldRespin(firstSpin)) {
+            this.spinWheel(free, firstSpin);
+        }
+    }
+
+
+    shouldRespin(firstSpin) {
+        if (!this.anyCardIsPlayableInStack(this.gameManager.hand)) {
+            console.log(`${this.currentCondition.name} is unplayable`);
+            const random = Math.random();
+            if (firstSpin) {
+                if (this.unplayableRespinChanceFirstSpin >= random) {
+                    return true;
+                }
+                return false;
+            } else {
+                if (this.unplayableRespinChance >= random) {
+                    return true;
+                }
+                return false;
+            }
+        }
+    }
+
+    anyCardIsPlayableInStack(cardStack) {
+        for (let card of cardStack.cards) {
+            if (this.canPlayCard(card, this.gameManager.table)) {
+                return true;
+            }
+        }
+        return false;
     }
 
     canPlayCard(cardInHand, tableStack) {

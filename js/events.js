@@ -15,7 +15,7 @@ export default function setupEvents(game) {
     sortTypeCheckbox.addEventListener("change", () => { sortBySuit = sortTypeCheckbox.checked });
     shuffleButton.addEventListener("click", () => { game.shuffleHand() });
     sortButton.addEventListener("click", () => { game.sortHand(sortBySuit, acesAreHigh) });
-    spinButton.addEventListener("click", () => { game.wheel.spinWheel(false) });
+    spinButton.addEventListener("click", () => { game.wheel.spinWheel(false, false); game.wheel.respinWheel(false, false); game.wheel.updateElements() });
     cycleDeckButton.addEventListener("click", () => { game.cycleDeck() });
     helpButton.addEventListener("click", () => { game.showHelp() });
 
