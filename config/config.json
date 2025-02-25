@@ -1,5 +1,5 @@
 {
-    "conditions": [
+  "conditions": [
     {
       "name": "SameRankOrSuit",
       "description": "You can play a card with the same rank or the same suit as the card above.",
@@ -12,41 +12,41 @@
       "description": "You can play a card that is one rank higher or lower than the card above.",
       "playsUntilForcedSpin": -1,
       "playsUntilFreeSpin": 2,
-      "weight": 8
+      "weight": 4
     },
     {
       "name": "OddRank",
       "description": "You can only play cards with odd ranks.",
-      "playsUntilForcedSpin": 5,
-      "playsUntilFreeSpin": 3,
-      "weight": 2
+      "playsUntilForcedSpin": 4,
+      "playsUntilFreeSpin": -1,
+      "weight": 3
     },
     {
       "name": "EvenRank",
       "description": "You can only play cards with even ranks.",
-      "playsUntilForcedSpin": 5,
-      "playsUntilFreeSpin": 3,
-      "weight": 2
+      "playsUntilForcedSpin": 4,
+      "playsUntilFreeSpin": -1,
+      "weight": 3
     },
     {
       "name": "SameColor",
       "description": "You can only play cards of the same color (red or black).",
-      "playsUntilForcedSpin": 5,
-      "playsUntilFreeSpin": 3,
-      "weight": 2
+      "playsUntilForcedSpin": 4,
+      "playsUntilFreeSpin": -1,
+      "weight": 3
     },
     {
       "name": "PrimeRank",
       "description": "You can only play cards with prime-numbered ranks (2, 3, 5, or 7).",
       "playsUntilForcedSpin": -1,
-      "playsUntilFreeSpin": 2,
+      "playsUntilFreeSpin": 1,
       "weight": 2
     },
     {
       "name": "FaceCardsOnly",
       "description": "You can only play face cards (Jack, Queen, King).",
       "playsUntilForcedSpin": -1,
-      "playsUntilFreeSpin": 2,
+      "playsUntilFreeSpin": 1,
       "weight": 1
     },
     {
@@ -54,14 +54,15 @@
       "description": "You must play a card that is exactly two ranks higher or lower than the card above.",
       "playsUntilForcedSpin": -1,
       "playsUntilFreeSpin": 2,
-      "weight": 4
+      "weight": 3
     },
     {
       "name": "NoRepeatSuit",
       "description": "You cannot play a card if its suit has been played before.",
-      "playsUntilForcedSpin": 3,
+      "playsUntilForcedSpin": -1,
       "playsUntilFreeSpin": 2,
-      "weight": 1
+      "weight": 1,
+      "startingWeight": 8
     },
     {
       "name": "OnlyAces",
@@ -108,55 +109,58 @@
     {
       "name": "MustBeLower",
       "description": "You can only play a card with a lower rank than the card above.",
-      "playsUntilForcedSpin": 6,
-      "playsUntilFreeSpin": 3,
-      "weight": 2
+      "playsUntilForcedSpin": 5,
+      "playsUntilFreeSpin": -1,
+      "weight": 3
     },
     {
       "name": "MustBeHigher",
       "description": "You can only play a card with a higher rank than the card above.",
-      "playsUntilForcedSpin": 6,
-      "playsUntilFreeSpin": 3,
-      "weight": 2
+      "playsUntilForcedSpin": 5,
+      "playsUntilFreeSpin": -1,
+      "weight": 3
     },
     {
       "name": "SumToTen",
       "description": "The rank of the played card and the card above must sum to 10.",
       "playsUntilForcedSpin": -1,
       "playsUntilFreeSpin": 2,
-      "weight": 3
+      "weight": 5
     },
     {
       "name": "Wildcard",
       "description": "For your next play, you can play any card.",
       "playsUntilForcedSpin": 1,
       "playsUntilFreeSpin": -1,
-      "weight": 3
+      "weight": 1,
+      "startingWeight": 0
     },
     {
       "name": "Wildcard",
       "description": "For your next two plays, you can play any card.",
       "playsUntilForcedSpin": 2,
       "playsUntilFreeSpin": -1,
-      "weight": 1
+      "weight": 1,
+      "startingWeight": 0
     },
     {
       "name": "Wildcard",
       "description": "For your next three plays, you can play any card.",
       "playsUntilForcedSpin": 3,
       "playsUntilFreeSpin": -1,
-      "weight": 1
+      "weight": 1,
+      "startingWeight": 0
     },
     {
       "name": "Wildcard",
       "description": "For your next four plays, you can play any card.",
       "playsUntilForcedSpin": 4,
       "playsUntilFreeSpin": -1,
-      "weight": 1
+      "weight": 1,
+      "startingWeight": 0
     }
   ],
-    "startingScore": 100,
-    "drawCost": -5,
-    "spinCost": -15
-
+  "startingScore": 100,
+  "drawCost": -5,
+  "spinCost": -15
 }

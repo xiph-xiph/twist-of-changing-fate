@@ -5,37 +5,50 @@ export default class ConditionWheel {
         this.wheelSize = wheelSize;
         this.spinCost = config.spinCost;
         this.linkElements();
-        this.spinWheel(true);
+        this.spinWheel(true, true);
         this.rotateAnimation();
     }
 
 
-    // always lands on another condition
-    spinWheel(free = false) {
+    spinWheel(free = false, firstSpin = false) {
         if (!(free || this?.playsUntilFreeSpin === 0)) {
             this.gameManager.updateScore(this.spinCost);
+        } else if (!firstSpin) {
+            // if the spin was free, remove the current condition from the list of possible conditions
+            // so that it can't be selected again for the rest of the game
+            this.conditions = this.conditions.filter((condition) => condition.name !== this.currentCondition.name);
         }
-        const oldCondition = this.currentCondition;
+
         let totalWeights = 0;
         for (let condition of this.conditions) {
             if (condition.name === this.currentCondition?.name) {
+                // skip the current condition
                 continue;
             }
-            totalWeights += condition.weight;
+            if (firstSpin && condition.startingWeight) {
+                totalWeights += condition.startingWeight;
+            } else {
+                totalWeights += condition.weight;
+            }
         }
         let randomWeight = Math.floor(Math.random() * totalWeights);
         for (let condition of this.conditions) {
             if (condition.name === this?.currentCondition?.name) {
                 continue;
             }
-            randomWeight -= condition.weight;
+            if (firstSpin && condition.startingWeight) {
+                randomWeight -= condition.startingWeight;
+            } else {
+                randomWeight -= condition.weight;
+            }
             if (randomWeight <= 0) {
                 this.currentCondition = condition;
                 break;
             }
         }
-        this.playsUntilForcedSpin = this.currentCondition.playsUntilForcedSpin;
-        this.playsUntilFreeSpin = this.currentCondition.playsUntilFreeSpin;
+        this.playsUntilForcedSpin = this.currentCondition?.playsUntilForcedSpin || -1;
+        this.playsUntilFreeSpin = this.currentCondition?.playsUntilFreeSpin || -1;
+        console.log(this.currentCondition);
         this.updateElements();
         this.gameManager.hand.updatePlayButton();
     }
