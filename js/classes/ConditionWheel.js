@@ -7,7 +7,6 @@ export default class ConditionWheel {
         this.unplayableRespinChanceFirstSpin = config.unplayableRespinChanceFirstSpin;
         this.linkElements();
         this.spinWheel(true, true);
-        this.rotateAnimation();
     }
 
 
