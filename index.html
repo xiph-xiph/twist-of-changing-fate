@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <link rel="stylesheet" href="style/style.css">
     <title>Twist of Changing Fate</title>
 </head>
@@ -32,6 +32,14 @@
             feedback</a>
     </div>
     <script src="js/main.js" type="module"></script>
+    <script>
+        // hide the url bar on mobile
+        window.addEventListener('load', function () {
+            setTimeout(function () {
+                window.scrollTo(0, 1);
+            }, 0);
+        });
+    </script>
 </body>
 
 </html>
