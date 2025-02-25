@@ -37,6 +37,7 @@ export default class ConditionWheel {
         this.playsUntilForcedSpin = this.currentCondition.playsUntilForcedSpin;
         this.playsUntilFreeSpin = this.currentCondition.playsUntilFreeSpin;
         this.updateElements();
+        this.gameManager.hand.updatePlayButton();
     }
 
     canPlayCard(cardInHand, tableStack) {

@@ -21,15 +21,21 @@ export default class Hand extends CardStack {
         card.selected = true;
         card.element.classList.add("selected");
         card.createPlayButton();
-
-        if (this.cardIsPlayable(card)) {
-            card.playButton.classList.add("playable");
-        } else {
-            card.playButton.classList.remove("playable");
-        }
-
         this.selectedCard = card;
+        this.updatePlayButton();
         return card;
+    }
+
+    // Updates the play button of the selected card to show whether it is playable or not
+    updatePlayButton() {
+        if (!this.selectedCard) {
+            return;
+        }
+        if (this.cardIsPlayable(this.selectedCard)) {
+            this.selectedCard.playButton.classList.add("playable");
+        } else {
+            this.selectedCard.playButton.classList.remove("playable");
+        }
     }
 
     // Deselect the selected card, and return it. Return null if no card was selected.
