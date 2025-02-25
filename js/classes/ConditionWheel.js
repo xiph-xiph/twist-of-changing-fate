@@ -27,7 +27,7 @@ export default class ConditionWheel {
             }
             if (firstSpin && condition.startingWeight) {
                 totalWeights += condition.startingWeight;
-            } else {
+            } else if (condition.weight) {
                 totalWeights += condition.weight;
             }
         }
@@ -38,7 +38,7 @@ export default class ConditionWheel {
             }
             if (firstSpin && condition.startingWeight) {
                 randomWeight -= condition.startingWeight;
-            } else {
+            } else if (condition.weight) {
                 randomWeight -= condition.weight;
             }
             if (randomWeight <= 0) {

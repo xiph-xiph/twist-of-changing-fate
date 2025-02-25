@@ -59,10 +59,10 @@
     {
       "name": "NoRepeatSuit",
       "description": "You cannot play a card if its suit has been played before.",
-      "playsUntilForcedSpin": -1,
-      "playsUntilFreeSpin": 2,
-      "weight": 1,
-      "startingWeight": 8
+      "playsUntilForcedSpin": 3,
+      "playsUntilFreeSpin": -1,
+      "weight": 0,
+      "startingWeight": 10
     },
     {
       "name": "OnlyAces",
@@ -124,8 +124,8 @@
       "name": "SumToTen",
       "description": "The rank of the played card and the card above must sum to 10.",
       "playsUntilForcedSpin": -1,
-      "playsUntilFreeSpin": 2,
-      "weight": 5
+      "playsUntilFreeSpin": 1,
+      "weight": 3
     },
     {
       "name": "Wildcard",
