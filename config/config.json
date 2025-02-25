@@ -165,5 +165,6 @@
   "spinCost": -15,
   "unplayableRespinChanceFirstSpin": 1,
   "unplayableRespinChance": 1,
-  "initialHandSize": 7
+  "initialHandSize": 7,
+  "handWidth": 670
 }

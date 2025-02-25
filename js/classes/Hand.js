@@ -5,6 +5,7 @@ export default class Hand extends CardStack {
         super(position, drawFaceDown, transformOrigin);
         this.gameManager = gameManager;
         this.selectedCard = null;
+        this.handWidth = gameManager.config.handWidth;
     }
 
     // Deselect the selected card, and then select given card if it was a different card, and return it.
@@ -67,7 +68,7 @@ export default class Hand extends CardStack {
         const elements = [];
         this.cards.forEach((card, i) => {
             const bottom = this.position.bottom;
-            const left = `calc(${this.position.left} + ${(i - (this.size - 1) / 2) * (600 / (this.size - 1))}px)`;
+            const left = `calc(${this.position.left} + ${(i - (this.size - 1) / 2) * (this.handWidth / (this.size - 1))}px)`;
             const element = card.createElement({
                 position: { bottom, left },
                 zIndex: i,
@@ -93,7 +94,7 @@ export default class Hand extends CardStack {
         const elements = [];
         this.cards.forEach((card, i) => {
             const bottom = this.position.bottom;
-            const left = `calc(${this.position.left} + ${(i - (this.size - 1) / 2) * (600 / (this.size - 1))}px)`;
+            const left = `calc(${this.position.left} + ${(i - (this.size - 1) / 2) * (this.handWidth / (this.size - 1))}px)`;
             const element = card.updateElement({
                 position: { bottom, left },
                 zIndex: i,

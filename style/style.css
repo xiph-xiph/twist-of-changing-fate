@@ -20,29 +20,33 @@ body {
     height: 340px;
     background-image: url('../img/cards.png');
     background-position: -0px -0px;
-    transform: translateX(-50%) scale(0.65);
+    transform: translateX(-50%) scale(0.75);
     transition: bottom 0.6s ease, left 0.6s ease, transform-origin 0.3s ease, filter 0.2s ease, transform 0.2s ease;
     filter: drop-shadow(0px 3px 5px rgba(0, 0, 0, 0.5));
 }
 
 .selected {
     filter: drop-shadow(0px 0px 10px rgb(255, 0, 0));
-    transform: translateX(-50%) translateY(-15%) scale(0.65);
+    transform: translateX(-50%) translateY(-15%) scale(0.75);
 }
 
 .playButton {
     background-color: darkgrey;
     position: absolute;
     transform-origin: center bottom;
-    transform: translateX(-50%) translateY(-280px);
-    width: 100px;
-    height: 35px;
+    transform: translateX(-50%) translateY(-320px);
+    width: 145px;
+    height: 45px;
     transition: bottom 0.6s ease, left 0.6s ease, transform-origin 0.3s ease, filter 0.2s ease, transform 0.2s ease;
     border-radius: 10px;
+    filter: drop-shadow(0px 3px 5px rgba(0, 0, 0, 0.5));
+    color: rgb(31, 30, 30);
+    font-weight: bold;
 }
 
 .playable {
-    background-color: rgb(159, 216, 159);
+    background-color: #4CAF50;
+    color: white;
     cursor: pointer;
 }
 
