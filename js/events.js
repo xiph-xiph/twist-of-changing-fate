@@ -18,7 +18,7 @@ export default function setupEvents(game) {
     spinButton.addEventListener("click", () => { game.wheel.spinWheel(false, false); game.wheel.respinWheel(false, false); game.wheel.updateElements() });
     cycleDeckButton.addEventListener("click", () => { game.cycleDeck() });
     helpButton.addEventListener("click", () => { game.showHelp() });
-
+    window.addEventListener("resize", () => { game.updateZoom(); });
     document.addEventListener("keydown", (event) => {
         if (event.key === " " || event.key === "Enter") {
             game.playCard();

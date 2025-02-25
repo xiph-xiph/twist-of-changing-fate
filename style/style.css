@@ -3,6 +3,14 @@ body {
     background-color: #f0f0f0;
     height: 100vh;
     margin: 0;
+    overflow: hidden;
+}
+
+.game-container {
+    zoom: 1;
+    transform-origin: top left;
+    width: 100vw;
+    height: 100vh;
 }
 
 .card {
@@ -44,7 +52,7 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    text-align: center;;
+    text-align: center;
 }
 
 .condition-text {
@@ -52,7 +60,6 @@ body {
     max-width: 300px;
     font-size: 25px;
 }
-
 
 .score-text {
     position: absolute;

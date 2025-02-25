@@ -7,6 +7,7 @@ export default class Card {
         this.drawFaceDown = false;
         this.onClickCallback = null;
         this.onPlayCallback = null;
+        this.gameContainer = document.querySelector('.game-container');
     }
 
     get name() {
@@ -70,7 +71,7 @@ export default class Card {
         this.playButton.innerText = "Play";
         this.playButton.style.bottom = this.element.style.bottom;
         this.playButton.style.left = this.element.style.left;
-        document.body.appendChild(this.playButton);
+        this.gameContainer.appendChild(this.playButton);
         this.playButton.addEventListener("click", () => this.playCard());
     }
 
@@ -88,7 +89,7 @@ export default class Card {
         this.element = document.createElement("div");
         this.element.classList.add("card");
         this.updateElement({ position: position, zIndex: zIndex, drawFaceDown: drawFaceDown, transformOrigin: transformOrigin, allowSelection: allowSelection });
-        document.body.appendChild(this.element);
+        this.gameContainer.appendChild(this.element);
         this.element.addEventListener("click", () => this.onClick());
     }
 

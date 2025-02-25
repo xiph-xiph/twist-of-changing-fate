@@ -9,26 +9,28 @@
 </head>
 
 <body>
-    <button id="shuffleButton">Shuffle Hand</button>
-    <button id="sortButton">Sort Hand</button>
-    <button id="cycleDeckButton">Cycle Card Back</button>
-    <button id="helpButton" class="help-button">Help!</button>
-    <input type="checkbox" id="acesAreHigh">aces are high?</input>
-    <input type="checkbox" id="sortBySuit">sort by suit?</input>
-    <div class="condition-wheel-container">
-        <p id="turnTableOfFateText" class="wheel-text">Turntable of Fate</p>
-        <button id="spinButton" class="spin-button">Spin</button>
-        <canvas id="conditionWheelCanvas" class="condition-wheel-canvas"></canvas>
-        <div>
-            <p id="conditionNameText" class="condition-text"></p>
-            <p id="conditionDescriptionText" class="condition-text"></p>
-            <p id="freeSpinText" class="condition-text"></p>
-            <p id="forcedSpinText" class="condition-text"></p>
+    <div class="game-container">
+        <button id="shuffleButton">Shuffle Hand</button>
+        <button id="sortButton">Sort Hand</button>
+        <button id="cycleDeckButton">Cycle Card Back</button>
+        <button id="helpButton" class="help-button">Help!</button>
+        <input type="checkbox" id="acesAreHigh">aces are high?</input>
+        <input type="checkbox" id="sortBySuit">sort by suit?</input>
+        <div class="condition-wheel-container">
+            <p id="turnTableOfFateText" class="wheel-text">Turntable of Fate</p>
+            <button id="spinButton" class="spin-button">Spin</button>
+            <canvas id="conditionWheelCanvas" class="condition-wheel-canvas"></canvas>
+            <div>
+                <p id="conditionNameText" class="condition-text"></p>
+                <p id="conditionDescriptionText" class="condition-text"></p>
+                <p id="freeSpinText" class="condition-text"></p>
+                <p id="forcedSpinText" class="condition-text"></p>
+            </div>
         </div>
+        <p id="scoreText" class="score-text">Score: </p>
+        <a href="https://forms.gle/GnBX7bauSj7DNAbE7" id="feedbackLink" class="feedback-link" target="_blank">Submit
+            feedback</a>
     </div>
-    <p id="scoreText" class="score-text">Score: </p>
-    <a href="https://forms.gle/GnBX7bauSj7DNAbE7" id="feedbackLink" class="feedback-link" target="_blank">Submit
-        feedback</a>
     <script src="js/main.js" type="module"></script>
 </body>
 

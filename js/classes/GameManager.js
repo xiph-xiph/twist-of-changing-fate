@@ -6,6 +6,7 @@ import ConditionWheel from "./ConditionWheel.js";
 export default class GameManager {
     constructor() {
         this.boundPlayCallback = this.playCard.bind(this);
+        this.gameContainer = document.querySelector('.game-container');
     }
 
     async initialize() {
@@ -159,5 +160,9 @@ export default class GameManager {
     enableControls() {
         this.deck.assignClickHandler(this.drawCard.bind(this, this.hand, false));
         this.hand.updateCallbacks(this.boundPlayCallback);
+    }
+
+    updateZoom() {
+        this.gameContainer.style.zoom = window.innerWidth / 1920;
     }
 }
