@@ -68,10 +68,10 @@ body {
 
 .score-text {
     position: absolute;
-    bottom: 10px;
-    left: 10px;
-    font-size: 25px;
-    transform: translateY(100%);
+    top: 15px;
+    left: 50%;
+    font-size: 30px;
+    transform: translateX(-50%) translateY(-100%);
 }
 
 .feedback-link {

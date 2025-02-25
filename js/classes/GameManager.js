@@ -33,8 +33,8 @@ export default class GameManager {
 
     setupGame() {
         this.score = this.config.startingScore;
-        this.hand = new Hand({ left: "50%", bottom: "10px" }, false, "center bottom", this);
-        this.table = new CardStack({ left: "50%", bottom: "calc(100% - 340px - 10px)" }, false, "center top");
+        this.hand = new Hand(this.config.handPosition, false, "center bottom", this);
+        this.table = new CardStack(this.config.tablePosition, false, "center top");
         this.deck = new Deck({ left: "20%", bottom: "calc(50% - 170px)" }, true, "center");
         this.wheel = new ConditionWheel(350, this, this.config);
         this.allCards = Array.from(this.deck.cards);

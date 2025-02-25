@@ -166,5 +166,13 @@
   "unplayableRespinChanceFirstSpin": 1,
   "unplayableRespinChance": 1,
   "initialHandSize": 7,
-  "handWidth": 670
+  "handWidth": 670,
+  "handPosition": {
+    "left": "50%",
+    "bottom": "10px"
+  },
+  "tablePosition": {
+    "left": "50%",
+    "bottom": "calc(100% - 340px - 60px)"
+  }
 }
