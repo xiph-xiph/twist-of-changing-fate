@@ -20,7 +20,7 @@ export default function setupEvents(game) {
     helpButton.addEventListener("click", () => { game.showHelp() });
     resetButton.addEventListener("click", () => { if (game.canReset && confirm("Are you sure you want to reset the current game?")) game.restartGame() });
     cycleDeckButton.addEventListener("click", () => { game.cycleDeck() });
-    window.addEventListener("resize", () => { game.updateZoom(); });
+    window.addEventListener("resize", () => { game.updateLayout(); });
     document.addEventListener("keydown", (event) => {
         if (event.key === " " || event.key === "Enter") {
             game.playCard();

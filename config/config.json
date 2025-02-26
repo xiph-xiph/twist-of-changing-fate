@@ -180,17 +180,34 @@
   "unplayableRespinChance": 1,
   "initialHandSize": 7,
   "maxHandSize": 10,
-  "handWidth": 670,
-  "handPosition": {
-    "left": "50%",
-    "bottom": "10px"
+  "landscape": {
+    "handWidth": 400,
+    "handPosition": {
+      "left": "50%",
+      "bottom": "10px"
+    },
+    "tablePosition": {
+      "left": "50%",
+      "bottom": "calc(100% - 340px - 60px)"
+    },
+    "deckPosition": {
+      "left": "20%",
+      "bottom": "calc(50% - 170px)"
+    }
   },
-  "tablePosition": {
-    "left": "50%",
-    "bottom": "calc(100% - 340px - 60px)"
-  },
-  "deckPosition": {
-    "left": "20%",
-    "bottom": "calc(50% - 170px)"
+  "portrait": {
+    "handWidth": 670,
+    "handPosition": {
+      "left": "50%",
+      "bottom": "10px"
+    },
+    "tablePosition": {
+      "left": "50%",
+      "bottom": "calc(100% - 340px - 60px)"
+    },
+    "deckPosition": {
+      "left": "10px",
+      "bottom": "calc(50% - 170px)"
+    }
   }
 }

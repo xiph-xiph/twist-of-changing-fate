@@ -107,6 +107,10 @@ export default class Card {
             }
             if (zIndex !== undefined) {
                 this.element.style.zIndex = zIndex;
+                this.zIndex = zIndex;
+                if (this.selected) {
+                    this.element.style.zIndex = 100;
+                }
             }
             if (transformOrigin !== undefined) {
                 this.element.style.transformOrigin = transformOrigin;

@@ -5,7 +5,7 @@ export default class Hand extends CardStack {
         super(position, drawFaceDown, transformOrigin);
         this.gameManager = gameManager;
         this.selectedCard = null;
-        this.handWidth = gameManager.config.handWidth;
+        this.updateHandWidth();
     }
 
     // Deselect the selected card, and then select given card if it was a different card, and return it.
@@ -21,6 +21,7 @@ export default class Hand extends CardStack {
         }
         card.selected = true;
         card.element.classList.add("selected");
+        card.updateElement({zIndex: card.zIndex});
         card.createPlayButton();
         this.selectedCard = card;
         this.updatePlayButton();
@@ -47,6 +48,7 @@ export default class Hand extends CardStack {
         const card = this.selectedCard;
         card.selected = false;
         card.element.classList.remove("selected");
+        card.updateElement({zIndex: card.zIndex});
         card.deletePlayButton();
         this.selectedCard = null;
         return card;
@@ -59,6 +61,7 @@ export default class Hand extends CardStack {
     // Create the DOM elements of the hand and return them. Return null if no cards in hand.
     // This is different from CardStack.createElements, here the cards are fanned out.
     createElements() {
+        this.updateHandWidth();
         if (this.size === 0) {
             return null;
         }
@@ -85,6 +88,7 @@ export default class Hand extends CardStack {
     // Refresh the DOM elements of the hand and return them. Return null if no cards in hand.
     // This is different from CardStack.updateElements, here the cards are fanned out.
     updateElements() {
+        this.updateHandWidth();
         if (this.size === 0) {
             return null;
         }
@@ -111,5 +115,13 @@ export default class Hand extends CardStack {
             card.onPlayCallback = onPlayCallback;
             card.onClickCallback = this.selectCard.bind(this, card);
         });
+    }
+
+    updateHandWidth() {
+        if (this.gameManager.landscape) {
+            this.handWidth = this.gameManager.config.landscape.handWidth;
+        } else {
+            this.handWidth = window.innerWidth * 0.8;
+        }
     }
 }

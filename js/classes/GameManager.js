@@ -36,9 +36,9 @@ export default class GameManager {
         resetButton.classList.add("button-unclickable");
         this.canReset = false;
         this.score = this.config.startingScore;
-        this.hand = new Hand(this.config.handPosition, false, "center bottom", this);
-        this.table = new CardStack(this.config.tablePosition, false, "center top");
-        this.deck = new Deck(this.config.deckPosition, true, "center");
+        this.hand = new Hand(this.config.landscape.handPosition, false, "center bottom", this);
+        this.table = new CardStack(this.config.landscape.tablePosition, false, "center top");
+        this.deck = new Deck(this.config.landscape.deckPosition, true, "center top", this);
         this.wheel = new ConditionWheel(350, this, this.config);
         this.allCards = Array.from(this.deck.cards);
         this.updateScore();
@@ -214,8 +214,17 @@ export default class GameManager {
         resetButton.classList.remove("button-unclickable");
     }
 
-    updateZoom() {
-        this.gameContainer.style.zoom = window.innerWidth / 1920;
+    updateLayout() {
+        if (window.innerWidth < window.innerHeight) {
+            this.landscape = false;
+            this.gameContainer.style.zoom = window.innerHeight / 1080;
+        } else {
+            this.landscape = true;
+            this.gameContainer.style.zoom = window.innerWidth / 1920;
+        }
+        if (this.hand){
+            this.hand.updateElements();
+        }
         let hasTouchScreen = false;
         if ("maxTouchPoints" in navigator) {
             hasTouchScreen = navigator.maxTouchPoints > 0;
