@@ -151,6 +151,7 @@ export default class GameManager {
         this.allCards.forEach((card) => {
             if (card.element) {
                 card.element.remove();
+                card.deletePlayButton();
             }
         });
         this.wheel.currentCondition = null;

@@ -79,8 +79,6 @@ export default class Card {
         if (this.playButton) {
             this.playButton.remove();
             this.playButton = null;
-        } else {
-            console.error("playButton does not exist");
         }
     }
 
