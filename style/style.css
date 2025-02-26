@@ -69,6 +69,7 @@ body {
     transform: translateX(-50%) translateY(-320px);
     width: 145px;
     height: 45px;
+    cursor: not-allowed;
     transition: bottom 0.6s ease, left 0.6s ease, transform-origin 0.3s ease, filter 0.2s ease, transform 0.2s ease;
     border-radius: 20px;
     filter: drop-shadow(0px 3px 5px rgba(0, 0, 0, 0.5));
@@ -160,6 +161,11 @@ body {
     font-weight: bold;
     cursor: pointer;
     margin: 10px;
+}
+
+.button-unclickable {
+    background-color: grey;
+    cursor: not-allowed;
 }
 
 .spin-button {

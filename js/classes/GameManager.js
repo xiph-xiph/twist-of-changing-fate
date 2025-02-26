@@ -32,6 +32,9 @@ export default class GameManager {
     }
 
     setupGame() {
+        const resetButton = document.getElementById("resetButton");
+        resetButton.classList.add("button-unclickable");
+        this.canReset = false;
         this.score = this.config.startingScore;
         this.hand = new Hand(this.config.handPosition, false, "center bottom", this);
         this.table = new CardStack(this.config.tablePosition, false, "center top");
@@ -203,8 +206,12 @@ export default class GameManager {
     }
 
     enableControls() {
+        const resetButton = document.getElementById("resetButton");
+
         this.deck.assignClickHandler(this.drawCard.bind(this, this.hand, false));
         this.hand.updateCallbacks(this.boundPlayCallback);
+        this.canReset = true;
+        resetButton.classList.remove("button-unclickable");
     }
 
     updateZoom() {

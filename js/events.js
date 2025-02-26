@@ -18,7 +18,7 @@ export default function setupEvents(game) {
     sortButton.addEventListener("click", () => { game.sortHand(sortBySuit, acesAreHigh) });
     spinButton.addEventListener("click", () => { game.tryToSpinWheel(false) });
     helpButton.addEventListener("click", () => { game.showHelp() });
-    resetButton.addEventListener("click", () => { game.restartGame() });
+    resetButton.addEventListener("click", () => { if (game.canReset && confirm("Are you sure you want to reset the current game?")) game.restartGame() });
     cycleDeckButton.addEventListener("click", () => { game.cycleDeck() });
     window.addEventListener("resize", () => { game.updateZoom(); });
     document.addEventListener("keydown", (event) => {
