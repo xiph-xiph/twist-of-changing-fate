@@ -181,7 +181,7 @@
   "initialHandSize": 7,
   "maxHandSize": 10,
   "landscape": {
-    "handWidth": 400,
+    "handWidth": 670,
     "handPosition": {
       "left": "50%",
       "bottom": "10px"
@@ -196,7 +196,7 @@
     }
   },
   "portrait": {
-    "handWidth": 670,
+    "handWidth": 400,
     "handPosition": {
       "left": "50%",
       "bottom": "10px"
