@@ -10,6 +10,7 @@ export default class Deck extends CardStack {
             }
         }
         this.shuffle()
+        this.updateElements();
     }
 
     // Take the top x cards from the deck and return them as an array. If there are not enough cards in the deck, return null

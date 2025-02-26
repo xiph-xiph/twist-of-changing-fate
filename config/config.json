@@ -188,5 +188,9 @@
   "tablePosition": {
     "left": "50%",
     "bottom": "calc(100% - 340px - 60px)"
+  },
+  "deckPosition": {
+    "left": "20%",
+    "bottom": "calc(50% - 170px)"
   }
 }

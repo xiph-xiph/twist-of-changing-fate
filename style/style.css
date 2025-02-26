@@ -130,6 +130,22 @@ body {
     margin: 10px;
 }
 
+.cycle-deck-button {
+    position: absolute;
+    transform: translateX(-50%);
+    bottom: 65%;
+    left: calc(20% - 10px);
+    font-size: 15px;
+    padding: 5px;
+    width: 170px;
+    border-radius: 15px;
+    background-color: #b34949;
+    filter: drop-shadow(0px 3px 5px rgba(0, 0, 0, 0.5));
+    color: white;
+    cursor: pointer;
+    margin: 10px;
+}
+
 .reset-button {
     position: absolute;
     top: 10px;

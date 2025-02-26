@@ -35,7 +35,7 @@ export default class GameManager {
         this.score = this.config.startingScore;
         this.hand = new Hand(this.config.handPosition, false, "center bottom", this);
         this.table = new CardStack(this.config.tablePosition, false, "center top");
-        this.deck = new Deck({ left: "20%", bottom: "calc(50% - 170px)" }, true, "center");
+        this.deck = new Deck(this.config.deckPosition, true, "center");
         this.wheel = new ConditionWheel(350, this, this.config);
         this.allCards = Array.from(this.deck.cards);
         this.updateScore();

@@ -5,6 +5,7 @@ const sortButton = document.getElementById("sortButton");
 const spinButton = document.getElementById("spinButton");
 const helpButton = document.getElementById("helpButton");
 const resetButton = document.getElementById("resetButton");
+const cycleDeckButton = document.getElementById("cycleDeckButton");
 
 let acesAreHigh = acesCheckbox.checked;
 let sortBySuit = sortTypeCheckbox.checked;
@@ -18,6 +19,7 @@ export default function setupEvents(game) {
     spinButton.addEventListener("click", () => { game.tryToSpinWheel(false) });
     helpButton.addEventListener("click", () => { game.showHelp() });
     resetButton.addEventListener("click", () => { game.restartGame() });
+    cycleDeckButton.addEventListener("click", () => { game.cycleDeck() });
     window.addEventListener("resize", () => { game.updateZoom(); });
     document.addEventListener("keydown", (event) => {
         if (event.key === " " || event.key === "Enter") {
