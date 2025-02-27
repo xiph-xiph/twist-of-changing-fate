@@ -267,7 +267,9 @@ export default class GameManager {
         if (hasTouchScreen && this.landscape) {
             document.body.style.transform = "translateY(20%)";
             document.body.style.overflowY = "scroll";
-            window.scrollTo(0, document.body.scrollHeight);
+        } else {
+            document.body.style.transform = "";
+            document.body.style.overflowY = "";
         }
         if (this.wheel) {
             this.wheel.updateElements();
