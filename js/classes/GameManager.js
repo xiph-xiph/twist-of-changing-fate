@@ -11,6 +11,14 @@ export default class GameManager {
         this.handControlsContainer = document.getElementById("handControlsContainer");
         this.checkboxContainer = document.getElementById("checkboxContainer");
         this.currentComboBonus = 0;
+        this.buttons = {
+            resetButton: document.getElementById("resetButton"),
+            spinButton: document.getElementById("spinButton"),
+            helpButton: document.getElementById("helpButton"),
+            cycleDeckButton: document.getElementById("cycleDeckButton"),
+            shuffleButton: document.getElementById("shuffleButton"),
+            sortButton: document.getElementById("sortButton")
+        };
     }
 
     async initialize() {
@@ -36,10 +44,7 @@ export default class GameManager {
     }
 
     setupGame() {
-        const resetButton = document.getElementById("resetButton");
-        resetButton.classList.add("button-unclickable");
-        this.canReset = false;
-        console.log(this.landscape);
+        this.lockControls();
         const handPosition = this.landscape ? this.config.landscape.handPosition : this.config.portrait.handPosition;
         const deckPosition = this.landscape ? this.config.landscape.deckPosition : this.config.portrait.deckPosition;
         const tablePosition = this.landscape ? this.config.landscape.tablePosition : this.config.portrait.tablePosition;
@@ -188,7 +193,8 @@ export default class GameManager {
         this.deck.createElements();
         this.distributeCards();
         setTimeout(() => { this.sortHand() }, this.config.initialHandSize * 300 + 300);
-        setTimeout(() => { this.enableControls() }, this.config.initialHandSize * 300 + 300);
+        setTimeout(() => { this.unlockControls() }, this.config.initialHandSize * 300 + 300);
+
     }
 
     showHelp() {
@@ -217,13 +223,21 @@ export default class GameManager {
         }, this.config.initialHandSize * 300);
     }
 
-    enableControls() {
-        const resetButton = document.getElementById("resetButton");
+    lockControls() {
+        for (let button in this.buttons) {
+            this.buttons[button].classList.add("button-unclickable");
+        }
+        this.controlsAreLocked = true;
 
+    }
+
+    unlockControls() {
         this.deck.assignClickHandler(this.drawCard.bind(this, this.hand, false));
         this.hand.updateCallbacks(this.boundPlayCallback);
-        this.canReset = true;
-        resetButton.classList.remove("button-unclickable");
+        for (let button in this.buttons) {
+            this.buttons[button].classList.remove("button-unclickable");
+        }
+        this.controlsAreLocked = false;
     }
 
     updateLayout() {

@@ -102,6 +102,11 @@ export default class CardStack {
         for (let i = 0; i < this.size - 2; i++) {
             this.cards[i].deleteElement();
         }
+        if (this.secondCard) {
+            this.secondCard.updateElement({
+                position: this.position
+            });
+        }
         this.topCard.updateElement({
             position: this.position,
             zIndex: this.size,

@@ -168,10 +168,6 @@ body {
     margin: 10px;
 }
 
-.button-unclickable {
-    background-color: grey;
-    cursor: not-allowed;
-}
 
 .spin-button {
     font-size: 25px;
@@ -186,6 +182,12 @@ body {
     cursor: pointer;
     margin: 10px;
 }
+
+.button-unclickable {
+    background-color: grey;
+    cursor: not-allowed;
+}
+
 
 .wheel-text {
     font-size: 35px;
