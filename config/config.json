@@ -23,21 +23,27 @@
       "description": "You can only play cards with odd ranks.",
       "playsUntilForcedSpin": 4,
       "playsUntilFreeSpin": -1,
-      "weight": 30
+      "weight": 30,
+      "scoreForPlaying": 3,
+      "comboScore": 0
     },
     {
       "name": "EvenRank",
       "description": "You can only play cards with even ranks.",
       "playsUntilForcedSpin": 4,
       "playsUntilFreeSpin": -1,
-      "weight": 30
+      "weight": 30,
+      "scoreForPlaying": 3,
+      "comboScore": 0
     },
     {
       "name": "SameColor",
       "description": "You can only play cards of the same color (red or black).",
       "playsUntilForcedSpin": 4,
       "playsUntilFreeSpin": -1,
-      "weight": 30
+      "weight": 30,
+      "scoreForPlaying": 3,
+      "comboScore": 0
     },
     {
       "name": "PrimeRank",
@@ -135,14 +141,18 @@
       "description": "You can only play a card with a lower rank than the card above.",
       "playsUntilForcedSpin": 5,
       "playsUntilFreeSpin": -1,
-      "weight": 30
+      "weight": 30,
+      "scoreForPlaying": 3,
+      "comboScore": 0
     },
     {
       "name": "MustBeHigher",
       "description": "You can only play a card with a higher rank than the card above.",
       "playsUntilForcedSpin": 5,
       "playsUntilFreeSpin": -1,
-      "weight": 30
+      "weight": 30,
+      "scoreForPlaying": 3,
+      "comboScore": 0
     },
     {
       "name": "SumToTen",
@@ -159,7 +169,9 @@
       "playsUntilForcedSpin": 1,
       "playsUntilFreeSpin": -1,
       "weight": 5,
-      "startingWeight": 0
+      "startingWeight": 0,
+      "scoreForPlaying": 3,
+      "comboScore": 0
     },
     {
       "name": "Wildcard",
@@ -167,7 +179,9 @@
       "playsUntilForcedSpin": 2,
       "playsUntilFreeSpin": -1,
       "weight": 3,
-      "startingWeight": 0
+      "startingWeight": 0,
+      "scoreForPlaying": 3,
+      "comboScore": -1
     },
     {
       "name": "Wildcard",
@@ -175,7 +189,9 @@
       "playsUntilForcedSpin": 3,
       "playsUntilFreeSpin": -1,
       "weight": 1,
-      "startingWeight": 0
+      "startingWeight": 0,
+      "scoreForPlaying": 3,
+      "comboScore": -1
     },
     {
       "name": "Wildcard",
@@ -183,7 +199,9 @@
       "playsUntilForcedSpin": 4,
       "playsUntilFreeSpin": -1,
       "weight": 1,
-      "startingWeight": 0
+      "startingWeight": 0,
+      "scoreForPlaying": 3,
+      "comboScore": -1
     }
   ],
   "wheelSegments": 20,
