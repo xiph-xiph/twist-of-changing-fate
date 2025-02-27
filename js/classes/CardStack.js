@@ -1,6 +1,7 @@
 export default class CardStack {
-    constructor(position = { left: "0%", bottom: "0%" }, drawFaceDown = false, transformOrigin = "center") {
+    constructor(position = { left: "0%", bottom: "0%" }, drawFaceDown = false, transformOrigin = "center", gameManager) {
         this.cards = [];
+        this.gameManager = gameManager;
         this.position = position;
         this.drawFaceDown = drawFaceDown;
         this.transformOrigin = transformOrigin;
@@ -92,7 +93,8 @@ export default class CardStack {
     }
 
     // Refresh the DOM elements of the stack and return them. Return null if no cards in stack.
-    updateElements() {
+    updateElements(newPosition = { left: this.position.left, bottom: this.position.bottom }) {
+        this.position = newPosition;
         if (this.size === 0) {
             return null;
         }

@@ -95,10 +95,14 @@ body {
     text-align: center;
 }
 
+.condition-text-container {
+    position: relative;
+    font-size: 25px;
+}
+
 .condition-text {
     justify-content: center;
     max-width: 300px;
-    font-size: 25px;
 }
 
 .score-text {

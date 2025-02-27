@@ -7,6 +7,9 @@ export default class GameManager {
     constructor() {
         this.boundPlayCallback = this.playCard.bind(this);
         this.gameContainer = document.querySelector('.game-container');
+        this.feedbackLink = document.getElementById("feedbackLink");
+        this.handControlsContainer = document.getElementById("handControlsContainer");
+        this.checkboxContainer = document.getElementById("checkboxContainer");
     }
 
     async initialize() {
@@ -35,11 +38,15 @@ export default class GameManager {
         const resetButton = document.getElementById("resetButton");
         resetButton.classList.add("button-unclickable");
         this.canReset = false;
+        console.log(this.landscape);
+        const handPosition = this.landscape ? this.config.landscape.handPosition : this.config.portrait.handPosition;
+        const deckPosition = this.landscape ? this.config.landscape.deckPosition : this.config.portrait.deckPosition;
+        const tablePosition = this.landscape ? this.config.landscape.tablePosition : this.config.portrait.tablePosition;
         this.score = this.config.startingScore;
-        this.hand = new Hand(this.config.landscape.handPosition, false, "center bottom", this);
-        this.table = new CardStack(this.config.landscape.tablePosition, false, "center top");
-        this.deck = new Deck(this.config.landscape.deckPosition, true, "center top", this);
-        this.wheel = new ConditionWheel(350, this, this.config);
+        this.hand = new Hand(handPosition, false, "center bottom", this);
+        this.table = new CardStack(tablePosition, false, "center top");
+        this.deck = new Deck(deckPosition, true, "center top", this);
+        this.wheel = new ConditionWheel(this, this.config);
         this.allCards = Array.from(this.deck.cards);
         this.updateScore();
     }
@@ -219,11 +226,29 @@ export default class GameManager {
         if (window.innerWidth < window.innerHeight) {
             this.landscape = false;
             this.gameContainer.style.zoom = window.innerHeight / 1080;
+            this.deck?.updateElements(this.config.portrait.deckPosition);
+            this.table?.updateElements(this.config.portrait.tablePosition);
+            this.feedbackLink.style.bottom = "64%";
+            this.feedbackLink.style.right = "16%";
+            this.handControlsContainer.style.bottom = "17%";
+            this.handControlsContainer.style.left = "50%";
+            this.gameContainer.appendChild(this.checkboxContainer);
+            this.checkboxContainer.style.position = "absolute";
+            this.checkboxContainer.style.right = "10px";
+            this.checkboxContainer.style.bottom = "27%";
         } else {
             this.landscape = true;
             this.gameContainer.style.zoom = window.innerWidth / 1920;
+            this.deck?.updateElements(this.config.landscape.deckPosition);
+            this.table?.updateElements(this.config.landscape.tablePosition);
+            this.feedbackLink.style.bottom = "";
+            this.feedbackLink.style.right = "";
+            this.handControlsContainer.style.bottom = "";
+            this.handControlsContainer.style.left = "";
+            this.handControlsContainer.appendChild(this.checkboxContainer);
+
         }
-        if (this.hand){
+        if (this.hand) {
             this.hand.updateElements();
         }
         let hasTouchScreen = false;
@@ -234,6 +259,9 @@ export default class GameManager {
             document.body.style.transform = "translateY(20%)";
             document.body.style.overflowY = "scroll";
             window.scrollTo(0, document.body.scrollHeight);
+        }
+        if (this.wheel) {
+            this.wheel.updateElements();
         }
 
     }

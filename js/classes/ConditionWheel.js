@@ -1,12 +1,14 @@
 export default class ConditionWheel {
-    constructor(wheelSize = 350, gameManager, config) {
+    constructor(gameManager, config) {
         this.gameManager = gameManager;
+        this.config = config;
         this.conditions = config.conditions;
-        this.wheelSize = wheelSize;
         this.unplayableRespinChance = config.unplayableRespinChance;
         this.unplayableRespinChanceFirstSpin = config.unplayableRespinChanceFirstSpin;
         this.linkElements();
+        this.updateElements();
         this.spinWheel(true, true);
+        this.rotationSpeed = 0;
     }
 
 
@@ -48,6 +50,7 @@ export default class ConditionWheel {
         while (this.shouldRespin(firstSpin)) {
             this.spinWheel(true, firstSpin);
         }
+        this.rotationSpeed += 0.03;
     }
 
 
@@ -128,6 +131,13 @@ export default class ConditionWheel {
     }
 
     linkElements() {
+        if (this.gameManager.landscape) {
+            this.wheelSize = this.config.landscape.wheelSize;
+        } else {
+            this.wheelSize = this.config.portrait.wheelSize;
+        }
+        this.conditionWheelContainer = document.getElementById("conditionWheelContainer");
+        this.conditionTextContainer = document.getElementById("conditionTextContainer");
         this.conditionNameTextElement = document.getElementById("conditionNameText");
         this.conditionDescriptionTextElement = document.getElementById("conditionDescriptionText");
         this.turnsUntilFreeSpinTextElement = document.getElementById("freeSpinText");
@@ -168,13 +178,45 @@ export default class ConditionWheel {
     }
 
     rotateAnimation() {
-        this.canvasContext.rotate(0.007);
+        this.canvasContext.rotate(this.rotationSpeed);
         this.drawArcs();
         this.drawCircle();
+        if (this.rotationSpeed > 0) {
+            this.rotationSpeed -= 0.0001;
+        } else {
+            this.rotationSpeed = 0;
+        }
         requestAnimationFrame(() => this.rotateAnimation());
     }
 
     updateElements() {
+        if (this.gameManager.landscape) {
+            this.wheelSize = this.config.landscape.wheelSize;
+            this.conditionWheelContainer.style.right = "";
+            this.conditionWheelContainer.style.top = "";
+            this.conditionWheelContainer.style.transform = "";
+            this.conditionWheelContainer.appendChild(this.conditionTextContainer);
+            this.conditionTextContainer.style.transform = "";
+            this.conditionTextContainer.style.position = "";
+            this.conditionTextContainer.style.right = "";
+            this.conditionTextContainer.style.bottom = "";
+        } else {
+            this.wheelSize = this.config.portrait.wheelSize;
+            this.conditionWheelContainer.style.right = this.config.portrait.wheelPosition.right;
+            this.conditionWheelContainer.style.top = this.config.portrait.wheelPosition.top;
+            this.conditionWheelContainer.style.transform = "translate(50%, -50%)";
+            this.gameManager.gameContainer.appendChild(this.conditionTextContainer);
+            this.conditionTextContainer.style.transform = "translateX(60%)";
+            this.conditionTextContainer.style.position = "absolute";
+            this.conditionTextContainer.style.right = "35%";
+            this.conditionTextContainer.style.bottom = "40%";
+        }
+        this.canvasContext.clearRect(-this.wheelSize / 2, -this.wheelSize / 2, this.wheelSize, this.wheelSize);
+        this.canvasElement.width = this.wheelSize;
+        this.canvasElement.height = this.wheelSize;
+        this.canvasContext = this.canvasElement.getContext("2d");
+        this.canvasContext.translate(this.wheelSize / 2, this.wheelSize / 2);
+
         if (this.currentCondition) {
             this.conditionNameTextElement.innerText = this.currentCondition.name + ":";
             this.conditionDescriptionTextElement.innerText = this.currentCondition.description;
@@ -193,10 +235,12 @@ export default class ConditionWheel {
                 this.turnUntilForcedSpinTextElement.innerText = "Forced Spin in " + this.playsUntilForcedSpin + " play(s)";
             }
         } else {
-            this.conditionNameTextElement.innerText = "";
-            this.conditionDescriptionTextElement.innerText = "";
-            this.turnsUntilFreeSpinTextElement.innerText = "";
-            this.turnUntilForcedSpinTextElement.innerText = "";
+            if (this.conditionNameTextElement) {
+                this.conditionNameTextElement.innerText = "";
+                this.conditionDescriptionTextElement.innerText = "";
+                this.turnsUntilFreeSpinTextElement.innerText = "";
+                this.turnUntilForcedSpinTextElement.innerText = "";
+            }
         }
     }
 }

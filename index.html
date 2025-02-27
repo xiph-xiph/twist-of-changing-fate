@@ -13,22 +13,25 @@
         <button id="helpButton" class="help-button">Help!</button>
         <button id="resetButton" class="reset-button">Reset</button>
         <button id="cycleDeckButton" class="cycle-deck-button">Switch Card Back</button>
-        <div class="hand-controls-container">
+        <div id="handControlsContainer" class="hand-controls-container">
             <button id="shuffleButton" class="hand-control-button">Shuffle Hand</button>
             <button id="sortButton" class="hand-control-button">Sort Hand</button>
-            <label class="checkbox-container">Sort by Suit
-                <input type="checkbox" id="sortBySuit" class="checkbox"></input>
-            </label>
-            <label class="checkbox-container">Aces are High
-                <input type="checkbox" id="acesAreHigh" class="checkbox"></input>
-            </label>
+            <div id="checkboxContainer">
+                <label class="checkbox-container">Sort by Suit
+                    <input type="checkbox" id="sortBySuit" class="checkbox"></input>
+                </label>
+                <label class="checkbox-container">Aces are High
+                    <input type="checkbox" id="acesAreHigh" class="checkbox"></input>
+                </label>
+            </div>
+
 
         </div>
-        <div class="condition-wheel-container">
+        <div id="conditionWheelContainer" class="condition-wheel-container">
             <p id="turnTableOfFateText" class="wheel-text">Turntable of Fate</p>
             <button id="spinButton" class="spin-button">Spin</button>
             <canvas id="conditionWheelCanvas" class="condition-wheel-canvas"></canvas>
-            <div>
+            <div id="conditionTextContainer" class="condition-text-container">
                 <p id="conditionNameText" class="condition-text"></p>
                 <p id="conditionDescriptionText" class="condition-text"></p>
                 <p id="freeSpinText" class="condition-text"></p>

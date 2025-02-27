@@ -16,7 +16,7 @@ export default function setupEvents(game) {
     sortTypeCheckbox.addEventListener("change", () => { sortBySuit = sortTypeCheckbox.checked });
     shuffleButton.addEventListener("click", () => { game.shuffleHand() });
     sortButton.addEventListener("click", () => { game.sortHand(sortBySuit, acesAreHigh) });
-    spinButton.addEventListener("click", () => { game.tryToSpinWheel(false) });
+    spinButton.addEventListener("click", () => { game.tryToSpinWheel(false); });
     helpButton.addEventListener("click", () => { game.showHelp() });
     resetButton.addEventListener("click", () => { if (game.canReset && confirm("Are you sure you want to reset the current game?")) game.restartGame() });
     cycleDeckButton.addEventListener("click", () => { game.cycleDeck() });

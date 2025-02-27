@@ -2,8 +2,7 @@ import CardStack from "./CardStack.js";
 
 export default class Hand extends CardStack {
     constructor(position = { left: "0%", bottom: "0%" }, drawFaceDown = false, transformOrigin = "center", gameManager) {
-        super(position, drawFaceDown, transformOrigin);
-        this.gameManager = gameManager;
+        super(position, drawFaceDown, transformOrigin, gameManager);
         this.selectedCard = null;
         this.updateHandWidth();
     }
@@ -21,7 +20,7 @@ export default class Hand extends CardStack {
         }
         card.selected = true;
         card.element.classList.add("selected");
-        card.updateElement({zIndex: card.zIndex});
+        card.updateElement({ zIndex: card.zIndex });
         card.createPlayButton();
         this.selectedCard = card;
         this.updatePlayButton();
@@ -48,7 +47,7 @@ export default class Hand extends CardStack {
         const card = this.selectedCard;
         card.selected = false;
         card.element.classList.remove("selected");
-        card.updateElement({zIndex: card.zIndex});
+        card.updateElement({ zIndex: card.zIndex });
         card.deletePlayButton();
         this.selectedCard = null;
         return card;
@@ -93,7 +92,7 @@ export default class Hand extends CardStack {
             return null;
         }
         if (this.size === 1) {
-            return super.updateElements(true);
+            return super.updateElements();
         }
         const elements = [];
         this.cards.forEach((card, i) => {
