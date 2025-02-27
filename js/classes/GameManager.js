@@ -47,6 +47,7 @@ export default class GameManager {
         this.table = new CardStack(tablePosition, false, "center top");
         this.deck = new Deck(deckPosition, true, "center top", this);
         this.wheel = new ConditionWheel(this, this.config);
+        this.wheel.rotateAnimation();
         this.allCards = Array.from(this.deck.cards);
         this.updateScore();
     }
@@ -78,8 +79,8 @@ export default class GameManager {
     }
 
     drawCard(destination = this.hand, free = false) {
-        if (this.score < 5) {
-            alert("It costs 5 points to draw a card! You don't have enough left!");
+        if (this.score < -this.config.drawCost && !free) {
+            alert(`It costs ${-this.config.drawCost} points to draw a card! You don't have enough left!`);
             return;
         }
         if (destination === this.hand && this.hand.size >= this.config.maxHandSize) {
@@ -124,8 +125,8 @@ export default class GameManager {
 
     tryToSpinWheel(forceFree = false) {
         let free = this.wheel.playsUntilFreeSpin === 0 || forceFree;
-        if (this.score < 15 && !free) {
-            alert("It costs 15 points to spin the wheel! You don't have enough left!");
+        if (this.score < -this.config.spinCost && !free) {
+            alert(`It costs ${-this.config.spinCost} points to spin the wheel! You don't have enough left!`);
             return;
         }
         if (!free) {

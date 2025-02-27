@@ -6,7 +6,8 @@
       "playsUntilForcedSpin": -1,
       "playsUntilFreeSpin": 3,
       "weight": 120,
-      "scoreForPlaying": 2
+      "scoreForPlaying": 2,
+      "comboScore": 2
     },
     {
       "name": "RankAscendingOrDescending",
@@ -173,6 +174,7 @@
       "startingWeight": 0
     }
   ],
+  "wheelSegments": 20,
   "startingScore": 100,
   "drawCost": -10,
   "spinCost": -25,

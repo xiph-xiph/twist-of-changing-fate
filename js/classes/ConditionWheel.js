@@ -3,6 +3,7 @@ export default class ConditionWheel {
         this.gameManager = gameManager;
         this.config = config;
         this.conditions = config.conditions;
+        this.wheelSegments = config.wheelSegments;
         this.unplayableRespinChance = config.unplayableRespinChance;
         this.unplayableRespinChanceFirstSpin = config.unplayableRespinChanceFirstSpin;
         this.linkElements();
@@ -154,19 +155,19 @@ export default class ConditionWheel {
     drawArcs() {
         const color1 = "rgb(223, 54, 39)";
         const color2 = "white";
-        this.canvasContext.clearRect(-this.wheelSize / 2, -this.wheelSize / 2, this.wheelSize, this.wheelSize);
-        this.conditions.forEach((condition, index) => {
-            if (index % 2) {
+        this.canvasContext.clearRect(-this.wheelSize * 3, -this.wheelSize * 3, this.wheelSize * 6, this.wheelSize * 6);
+        for (let i = 0; i < this.wheelSegments; i++) {
+            if (i % 2) {
                 this.canvasContext.fillStyle = color1;
             } else {
                 this.canvasContext.fillStyle = color2;
             }
-            const arcSegment = 2 * Math.PI / this.conditions.length;
+            const arcSegment = 2 * Math.PI / this.wheelSegments;
             this.canvasContext.beginPath();
             this.canvasContext.moveTo(0, 0);
-            this.canvasContext.arc(0, 0, this.wheelSize / 2, index * arcSegment, (index + 1) * arcSegment);
+            this.canvasContext.arc(0, 0, this.wheelSize / 2, i * arcSegment, (i + 1) * arcSegment);
             this.canvasContext.fill();
-        });
+        };
     }
 
     drawCircle() {
@@ -190,6 +191,7 @@ export default class ConditionWheel {
     }
 
     updateElements() {
+        this.canvasContext.clearRect(-this.wheelSize / 2, -this.wheelSize / 2, this.wheelSize, this.wheelSize);
         if (this.gameManager.landscape) {
             this.wheelSize = this.config.landscape.wheelSize;
             this.conditionWheelContainer.style.right = "";
@@ -211,7 +213,6 @@ export default class ConditionWheel {
             this.conditionTextContainer.style.right = "35%";
             this.conditionTextContainer.style.bottom = "40%";
         }
-        this.canvasContext.clearRect(-this.wheelSize / 2, -this.wheelSize / 2, this.wheelSize, this.wheelSize);
         this.canvasElement.width = this.wheelSize;
         this.canvasElement.height = this.wheelSize;
         this.canvasContext = this.canvasElement.getContext("2d");
