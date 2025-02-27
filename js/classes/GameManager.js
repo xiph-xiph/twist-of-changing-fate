@@ -201,11 +201,7 @@ export default class GameManager {
         alert(`Welcome to Twist of Changing Fate! The goal is to play all the cards in your hand (on the bottom) onto the table (on the top).`);
         alert(`You can play a card if it matches the condition decided by the Turntable of Fate. (on the right)`);
         alert(`If you can't play a card, you can draw a card from the deck (on the left) by clicking it, or you can spin the Turntable of Fate, to be able to play other cards.`);
-        alert(`You can see your score on the bottom left.`)
-        alert(`It costs you 5 points to draw a card, and 15 points to spin the Turntable of Fate.`);
-        alert(`If you play enough cards on the current rule, you will get a free spin!`);
-        alert(`Sometimes, you will be forced to spin the Turntable of Fate after a certain number of plays.`);
-        alert(`You can also sort your hand by rank or suit, or shuffle it to get a fresh look.`)
+        alert(`It costs you ${-this.config.drawCost} points to draw a card, and ${-this.config.spinCost} points to spin the Turntable of Fate.`);
         alert(`Good luck!`);
     }
 
