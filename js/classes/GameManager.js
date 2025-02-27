@@ -264,7 +264,7 @@ export default class GameManager {
         if ("maxTouchPoints" in navigator) {
             hasTouchScreen = navigator.maxTouchPoints > 0;
         }
-        if (hasTouchScreen && landscape) {
+        if (hasTouchScreen && this.landscape) {
             document.body.style.transform = "translateY(20%)";
             document.body.style.overflowY = "scroll";
             window.scrollTo(0, document.body.scrollHeight);
