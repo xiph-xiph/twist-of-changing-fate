@@ -103,7 +103,7 @@ export default class GameManager {
             if (this.wheel.canPlayCard(this.hand.selectedCard, this.table)) {
                 if (this.wheel.currentCondition.scoreForPlaying) {
                     this.updateScore(this.wheel.currentCondition.scoreForPlaying + this.currentComboBonus);
-                    this.currentComboBonus += this.wheel.currentCondition.comboBonus;
+                    this.currentComboBonus += this.wheel.currentCondition.comboScore;
                 }
                 this.table.addCards(this.hand.detachCard(this.hand.selectedCard));
                 this.table.updateElements();
