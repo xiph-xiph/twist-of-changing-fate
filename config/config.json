@@ -174,10 +174,10 @@
     }
   ],
   "startingScore": 100,
-  "drawCost": -5,
-  "spinCost": -15,
+  "drawCost": -8,
+  "spinCost": -24,
   "unplayableRespinChanceFirstSpin": 1,
-  "unplayableRespinChance": 1,
+  "unplayableRespinChance": 0.5,
   "initialHandSize": 7,
   "maxHandSize": 10,
   "landscape": {
@@ -193,7 +193,8 @@
     "deckPosition": {
       "left": "20%",
       "bottom": "calc(50% - 170px)"
-    }
+    },
+    "wheelSize": 350
   },
   "portrait": {
     "handWidth": 400,
@@ -202,12 +203,17 @@
       "bottom": "10px"
     },
     "tablePosition": {
-      "left": "50%",
-      "bottom": "calc(100% - 340px - 60px)"
+      "left": "67%",
+      "bottom": "calc(100% - 340px - 80px)"
     },
     "deckPosition": {
-      "left": "10px",
-      "bottom": "calc(50% - 170px)"
-    }
+      "left": "33%",
+      "bottom": "calc(100% - 340px - 80px)"
+    },
+    "wheelPosition": {
+      "right": "80%",
+      "top": "55%"
+    },
+    "wheelSize": 200
   }
 }
