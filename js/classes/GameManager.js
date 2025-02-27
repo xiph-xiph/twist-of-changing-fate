@@ -10,6 +10,7 @@ export default class GameManager {
         this.feedbackLink = document.getElementById("feedbackLink");
         this.handControlsContainer = document.getElementById("handControlsContainer");
         this.checkboxContainer = document.getElementById("checkboxContainer");
+        this.currentComboBonus = 0;
     }
 
     async initialize() {
@@ -101,7 +102,8 @@ export default class GameManager {
         if (this.hand.selectedCard) {
             if (this.wheel.canPlayCard(this.hand.selectedCard, this.table)) {
                 if (this.wheel.currentCondition.scoreForPlaying) {
-                    this.updateScore(this.wheel.currentCondition.scoreForPlaying);
+                    this.updateScore(this.wheel.currentCondition.scoreForPlaying + this.currentComboBonus);
+                    this.currentComboBonus += this.wheel.currentCondition.comboBonus;
                 }
                 this.table.addCards(this.hand.detachCard(this.hand.selectedCard));
                 this.table.updateElements();
@@ -135,6 +137,7 @@ export default class GameManager {
         this.wheel.spinWheel(false);
         this.wheel.respinWheel(false);
         this.wheel.updateElements()
+        this.currentComboBonus = 0;
     }
 
     checkForWin() {
