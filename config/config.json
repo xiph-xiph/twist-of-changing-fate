@@ -5,7 +5,7 @@
       "description": "You can play a card with the same rank or the same suit as the card above.",
       "playsUntilForcedSpin": -1,
       "playsUntilFreeSpin": 3,
-      "weight": 12,
+      "weight": 120,
       "scoreForPlaying": 2
     },
     {
@@ -13,7 +13,7 @@
       "description": "You can play a card that is one rank higher or lower than the card above.",
       "playsUntilForcedSpin": -1,
       "playsUntilFreeSpin": 2,
-      "weight": 4,
+      "weight": 40,
       "scoreForPlaying": 6
     },
     {
@@ -21,28 +21,28 @@
       "description": "You can only play cards with odd ranks.",
       "playsUntilForcedSpin": 4,
       "playsUntilFreeSpin": -1,
-      "weight": 3
+      "weight": 30
     },
     {
       "name": "EvenRank",
       "description": "You can only play cards with even ranks.",
       "playsUntilForcedSpin": 4,
       "playsUntilFreeSpin": -1,
-      "weight": 3
+      "weight": 30
     },
     {
       "name": "SameColor",
       "description": "You can only play cards of the same color (red or black).",
       "playsUntilForcedSpin": 4,
       "playsUntilFreeSpin": -1,
-      "weight": 3
+      "weight": 30
     },
     {
       "name": "PrimeRank",
       "description": "You can only play cards with prime-numbered ranks (2, 3, 5, or 7).",
       "playsUntilForcedSpin": -1,
       "playsUntilFreeSpin": 2,
-      "weight": 2,
+      "weight": 20,
       "scoreForPlaying": 4
     },
     {
@@ -50,7 +50,7 @@
       "description": "You can only play face cards (Jack, Queen, King).",
       "playsUntilForcedSpin": -1,
       "playsUntilFreeSpin": 2,
-      "weight": 1,
+      "weight": 10,
       "scoreForPlaying": 5
     },
     {
@@ -58,7 +58,7 @@
       "description": "You must play a card that is exactly two ranks higher or lower than the card above.",
       "playsUntilForcedSpin": -1,
       "playsUntilFreeSpin": 2,
-      "weight": 3,
+      "weight": 30,
       "scoreForPlaying": 7
     },
     {
@@ -67,7 +67,7 @@
       "playsUntilForcedSpin": 3,
       "playsUntilFreeSpin": -1,
       "weight": 0,
-      "startingWeight": 10,
+      "startingWeight": 200,
       "scoreForPlaying": 5
     },
     {
@@ -75,7 +75,7 @@
       "description": "You can only play aces.",
       "playsUntilForcedSpin": -1,
       "playsUntilFreeSpin": 1,
-      "weight": 2,
+      "weight": 20,
       "scoreForPlaying": 20
     },
     {
@@ -83,7 +83,7 @@
       "description": "You can only play Clubs.",
       "playsUntilForcedSpin": -1,
       "playsUntilFreeSpin": 2,
-      "weight": 2,
+      "weight": 20,
       "scoreForPlaying": 3
     },
     {
@@ -91,7 +91,7 @@
       "description": "You can only play Diamonds.",
       "playsUntilForcedSpin": -1,
       "playsUntilFreeSpin": 2,
-      "weight": 2,
+      "weight": 20,
       "scoreForPlaying": 3
     },
     {
@@ -99,7 +99,7 @@
       "description": "You can only play Hearts.",
       "playsUntilForcedSpin": -1,
       "playsUntilFreeSpin": 2,
-      "weight": 2,
+      "weight": 20,
       "scoreForPlaying": 3
     },
     {
@@ -107,7 +107,7 @@
       "description": "You can only play Spades.",
       "playsUntilForcedSpin": -1,
       "playsUntilFreeSpin": 2,
-      "weight": 2,
+      "weight": 20,
       "scoreForPlaying": 3
     },
     {
@@ -115,7 +115,7 @@
       "description": "You can only play cards with ranks that are multiples of 3 (3, 6, or 9).",
       "playsUntilForcedSpin": -1,
       "playsUntilFreeSpin": 2,
-      "weight": 4,
+      "weight": 40,
       "scoreForPlaying": 5
     },
     {
@@ -123,21 +123,21 @@
       "description": "You can only play a card with a lower rank than the card above.",
       "playsUntilForcedSpin": 5,
       "playsUntilFreeSpin": -1,
-      "weight": 3
+      "weight": 30
     },
     {
       "name": "MustBeHigher",
       "description": "You can only play a card with a higher rank than the card above.",
       "playsUntilForcedSpin": 5,
       "playsUntilFreeSpin": -1,
-      "weight": 3
+      "weight": 30
     },
     {
       "name": "SumToTen",
       "description": "The rank of the played card and the card above must sum to 10.",
       "playsUntilForcedSpin": -1,
       "playsUntilFreeSpin": 1,
-      "weight": 4,
+      "weight": 40,
       "scoreForPlaying": 12
     },
     {
@@ -145,7 +145,7 @@
       "description": "For your next play, you can play any card.",
       "playsUntilForcedSpin": 1,
       "playsUntilFreeSpin": -1,
-      "weight": 1,
+      "weight": 5,
       "startingWeight": 0
     },
     {
@@ -153,7 +153,7 @@
       "description": "For your next two plays, you can play any card.",
       "playsUntilForcedSpin": 2,
       "playsUntilFreeSpin": -1,
-      "weight": 1,
+      "weight": 3,
       "startingWeight": 0
     },
     {
@@ -174,8 +174,8 @@
     }
   ],
   "startingScore": 100,
-  "drawCost": -8,
-  "spinCost": -24,
+  "drawCost": -10,
+  "spinCost": -25,
   "unplayableRespinChanceFirstSpin": 1,
   "unplayableRespinChance": 0.5,
   "initialHandSize": 7,
