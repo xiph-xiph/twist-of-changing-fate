@@ -224,6 +224,7 @@ export default class GameManager {
 
     updateLayout() {
         if (window.innerWidth < window.innerHeight) {
+            // portrait layout
             this.landscape = false;
             this.gameContainer.style.zoom = window.innerHeight / 1080;
             this.deck?.updateElements(this.config.portrait.deckPosition);
@@ -237,6 +238,7 @@ export default class GameManager {
             this.checkboxContainer.style.right = "10px";
             this.checkboxContainer.style.bottom = "27%";
         } else {
+            // landscape layout
             this.landscape = true;
             this.gameContainer.style.zoom = window.innerWidth / 1920;
             this.deck?.updateElements(this.config.landscape.deckPosition);
@@ -258,7 +260,7 @@ export default class GameManager {
         if ("maxTouchPoints" in navigator) {
             hasTouchScreen = navigator.maxTouchPoints > 0;
         }
-        if (hasTouchScreen) {
+        if (hasTouchScreen && landscape) {
             document.body.style.transform = "translateY(20%)";
             document.body.style.overflowY = "scroll";
             window.scrollTo(0, document.body.scrollHeight);
