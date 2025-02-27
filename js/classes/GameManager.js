@@ -232,11 +232,13 @@ export default class GameManager {
             this.feedbackLink.style.bottom = "64%";
             this.feedbackLink.style.right = "16%";
             this.handControlsContainer.style.bottom = "17%";
-            this.handControlsContainer.style.left = "50%";
+            this.handControlsContainer.style.left = "43%";
             this.gameContainer.appendChild(this.checkboxContainer);
             this.checkboxContainer.style.position = "absolute";
-            this.checkboxContainer.style.right = "10px";
-            this.checkboxContainer.style.bottom = "27%";
+            this.checkboxContainer.style.transformOrigin = "left center";
+            this.checkboxContainer.style.transform = "translateX(50%)";
+            this.checkboxContainer.style.right = "15%";
+            this.checkboxContainer.style.bottom = "26%";
         } else {
             // landscape layout
             this.landscape = true;
@@ -249,6 +251,8 @@ export default class GameManager {
             this.handControlsContainer.style.left = "";
             this.handControlsContainer.appendChild(this.checkboxContainer);
             this.checkboxContainer.style.position = "";
+            this.checkboxContainer.style.transformOrigin = "";
+            this.checkboxContainer.style.transform = "";
             this.checkboxContainer.style.right = "";
             this.checkboxContainer.style.bottom = "";
 

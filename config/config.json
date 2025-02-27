@@ -203,11 +203,11 @@
       "bottom": "10px"
     },
     "tablePosition": {
-      "left": "67%",
+      "left": "75%",
       "bottom": "calc(100% - 340px - 80px)"
     },
     "deckPosition": {
-      "left": "33%",
+      "left": "25%",
       "bottom": "calc(100% - 340px - 80px)"
     },
     "wheelPosition": {
