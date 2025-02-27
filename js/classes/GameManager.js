@@ -246,6 +246,9 @@ export default class GameManager {
             this.handControlsContainer.style.bottom = "";
             this.handControlsContainer.style.left = "";
             this.handControlsContainer.appendChild(this.checkboxContainer);
+            this.checkboxContainer.style.position = "";
+            this.checkboxContainer.style.right = "";
+            this.checkboxContainer.style.bottom = "";
 
         }
         if (this.hand) {
