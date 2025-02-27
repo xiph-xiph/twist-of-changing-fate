@@ -14,17 +14,12 @@ let sortBySuit = sortTypeCheckbox.checked;
 export default function setupEvents(game) {
     acesCheckbox.addEventListener("change", () => { acesAreHigh = acesCheckbox.checked });
     sortTypeCheckbox.addEventListener("change", () => { sortBySuit = sortTypeCheckbox.checked });
-    shuffleButton.addEventListener("click", () => { game.shuffleHand() });
-    sortButton.addEventListener("click", () => { game.sortHand(sortBySuit, acesAreHigh) });
-    spinButton.addEventListener("click", () => { game.tryToSpinWheel(false); });
-    helpButton.addEventListener("click", () => { game.showHelp() });
-    resetButton.addEventListener("click", () => { if (game.canReset && confirm("Are you sure you want to reset the current game?")) game.restartGame() });
-    cycleDeckButton.addEventListener("click", () => { game.cycleDeck() });
+    shuffleButton.addEventListener("click", () => { if (!game.controlsAreLocked) game.shuffleHand() });
+    sortButton.addEventListener("click", () => { if (!game.controlsAreLocked) game.sortHand(sortBySuit, acesAreHigh) });
+    spinButton.addEventListener("click", () => { if (!game.controlsAreLocked) game.tryToSpinWheel(false); });
+    helpButton.addEventListener("click", () => { if (!game.controlsAreLocked) game.showHelp() });
+    resetButton.addEventListener("click", () => { if (!game.controlsAreLocked && confirm("Are you sure you want to reset the current game?")) game.restartGame() });
+    cycleDeckButton.addEventListener("click", () => { if (!game.controlsAreLocked) game.cycleDeck() });
     window.addEventListener("resize", () => { game.updateLayout(); });
-    document.addEventListener("keydown", (event) => {
-        if (event.key === " " || event.key === "Enter") {
-            game.playCard();
-        }
-    });
 }
 
