@@ -2,6 +2,8 @@ import CardStack from "./CardStack.js";
 import Deck from "./Deck.js";
 import Hand from "./Hand.js"
 import ConditionWheel from "./ConditionWheel.js";
+import AnimationManager from "./AnimationManager.js";
+import Animation from "./Animation.js";
 
 export default class GameManager {
     constructor() {
