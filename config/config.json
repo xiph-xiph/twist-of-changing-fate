@@ -6,8 +6,8 @@
       "playsUntilForcedSpin": -1,
       "playsUntilFreeSpin": 3,
       "weight": 120,
-      "scoreForPlaying": 2,
-      "comboScore": 2
+      "scoreForPlaying": 3,
+      "comboScore": 5
     },
     {
       "name": "RankAscendingOrDescending",
@@ -15,7 +15,8 @@
       "playsUntilForcedSpin": -1,
       "playsUntilFreeSpin": 2,
       "weight": 40,
-      "scoreForPlaying": 6
+      "scoreForPlaying": 8,
+      "comboScore": 10
     },
     {
       "name": "OddRank",
@@ -44,7 +45,8 @@
       "playsUntilForcedSpin": -1,
       "playsUntilFreeSpin": 2,
       "weight": 20,
-      "scoreForPlaying": 4
+      "scoreForPlaying": 5,
+      "comboScore": 3
     },
     {
       "name": "FaceCardsOnly",
@@ -52,7 +54,8 @@
       "playsUntilForcedSpin": -1,
       "playsUntilFreeSpin": 2,
       "weight": 10,
-      "scoreForPlaying": 5
+      "scoreForPlaying": 5,
+      "comboScore": 3
     },
     {
       "name": "LowerOrHigherByTwo",
@@ -60,7 +63,8 @@
       "playsUntilForcedSpin": -1,
       "playsUntilFreeSpin": 2,
       "weight": 30,
-      "scoreForPlaying": 7
+      "scoreForPlaying": 10,
+      "comboScore": 10
     },
     {
       "name": "NoRepeatSuit",
@@ -69,15 +73,17 @@
       "playsUntilFreeSpin": -1,
       "weight": 0,
       "startingWeight": 200,
-      "scoreForPlaying": 5
+      "scoreForPlaying": 5,
+      "comboScore": 5
     },
     {
       "name": "OnlyAces",
       "description": "You can only play aces.",
       "playsUntilForcedSpin": -1,
       "playsUntilFreeSpin": 1,
-      "weight": 20,
-      "scoreForPlaying": 20
+      "weight": 25,
+      "scoreForPlaying": 20,
+      "comboScore": 5
     },
     {
       "name": "OnlyClubs",
@@ -85,7 +91,8 @@
       "playsUntilForcedSpin": -1,
       "playsUntilFreeSpin": 2,
       "weight": 20,
-      "scoreForPlaying": 3
+      "scoreForPlaying": 5,
+      "comboScore": 3
     },
     {
       "name": "OnlyDiamonds",
@@ -93,7 +100,8 @@
       "playsUntilForcedSpin": -1,
       "playsUntilFreeSpin": 2,
       "weight": 20,
-      "scoreForPlaying": 3
+      "scoreForPlaying": 5,
+      "comboScore": 3
     },
     {
       "name": "OnlyHearts",
@@ -101,7 +109,8 @@
       "playsUntilForcedSpin": -1,
       "playsUntilFreeSpin": 2,
       "weight": 20,
-      "scoreForPlaying": 3
+      "scoreForPlaying": 5,
+      "comboScore": 3
     },
     {
       "name": "OnlySpades",
@@ -109,7 +118,8 @@
       "playsUntilForcedSpin": -1,
       "playsUntilFreeSpin": 2,
       "weight": 20,
-      "scoreForPlaying": 3
+      "scoreForPlaying": 5,
+      "comboScore": 3
     },
     {
       "name": "MultipleOfThreeRank",
@@ -117,7 +127,8 @@
       "playsUntilForcedSpin": -1,
       "playsUntilFreeSpin": 2,
       "weight": 40,
-      "scoreForPlaying": 5
+      "scoreForPlaying": 8,
+      "comboScore": 3
     },
     {
       "name": "MustBeLower",
@@ -139,7 +150,8 @@
       "playsUntilForcedSpin": -1,
       "playsUntilFreeSpin": 1,
       "weight": 40,
-      "scoreForPlaying": 12
+      "scoreForPlaying": 15,
+      "comboScore": 8
     },
     {
       "name": "Wildcard",
