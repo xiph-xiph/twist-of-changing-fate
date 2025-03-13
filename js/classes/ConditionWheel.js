@@ -144,6 +144,7 @@ export default class ConditionWheel {
         this.turnsUntilFreeSpinTextElement = document.getElementById("freeSpinText");
         this.turnUntilForcedSpinTextElement = document.getElementById("forcedSpinText");
         this.canvasElement = document.getElementById("conditionWheelCanvas");
+        this.spinButton = document.getElementById("spinButton");
         this.canvasElement.width = this.wheelSize;
         this.canvasElement.height = this.wheelSize;
         this.canvasContext = this.canvasElement.getContext("2d");
@@ -217,6 +218,14 @@ export default class ConditionWheel {
         this.canvasElement.height = this.wheelSize;
         this.canvasContext = this.canvasElement.getContext("2d");
         this.canvasContext.translate(this.wheelSize / 2, this.wheelSize / 2);
+
+        if (this.playsUntilFreeSpin === 0) {
+            this.spinButton.classList.add("free-spin-button");
+            this.spinButton.innerText = "Free Spin!";
+        } else {
+            this.spinButton.classList.remove("free-spin-button");
+            this.spinButton.innerText = "Spin";
+        }
 
         if (this.currentCondition) {
             this.conditionNameTextElement.innerText = this.currentCondition.name + ":";

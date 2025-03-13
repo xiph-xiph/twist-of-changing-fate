@@ -183,6 +183,10 @@ body {
     margin: 10px;
 }
 
+.free-spin-button {
+    background-color: #2dd1d6;
+}
+
 .button-unclickable {
     background-color: grey;
     cursor: not-allowed;
