@@ -51,14 +51,18 @@ export default class ConditionWheel {
 
     // checks if the wheel should be respun, then respins the wheel if necessary
     respinWheel(firstSpin = false) {
+        const lastCondition = this.currentCondition;
         do {
             this.spinWheel(firstSpin);
-        } while (this.shouldRespin(firstSpin));
+        } while (this.shouldRespin(firstSpin, lastCondition));
         this.spinAnimation();
     }
 
 
-    shouldRespin(firstSpin) {
+    shouldRespin(firstSpin, lastCondition) {
+        if (lastCondition === this.currentCondition) {
+            return true;
+        }
         if (!this.anyCardIsPlayableInStack(this.gameManager.hand)) {
             const random = Math.random();
             if (firstSpin) {
