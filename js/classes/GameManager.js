@@ -175,10 +175,6 @@ export default class GameManager {
 
     checkForLoss() {
         if (this.score < 5 && !this.wheel.anyCardIsPlayableInStack(this.hand) && !(this.wheel.playsUntilForcedSpin === 0 || this.wheel.playsUntilFreeSpin === 0)) {
-            console.log(this.score);
-            console.log(this.wheel.anyCardIsPlayableInStack(this.hand));
-            console.log(this.wheel.playsUntilForcedSpin);
-            console.log(this.wheel.playsUntilFreeSpin);
             setTimeout(() => {
                 this.showMessage("You have no playable cards left! You lose! Click OK to start over.", this.restartGame);
             }, 800);
