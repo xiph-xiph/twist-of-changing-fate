@@ -157,7 +157,7 @@ export default class GameManager {
             this.showMessage(`YOU WIN!!!!!!!!!!
             Your score was: ${this.score}
             Thanks for playing my game! Click the link on the bottom right to submit feedback.
-            Click OK to start over`, false, this.restartGame);
+            Click OK to start over`, false, this.restartGame.bind(this));
         }, 600);
     }
 
