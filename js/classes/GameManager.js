@@ -124,6 +124,7 @@ export default class GameManager {
                 return;
             }
         }
+        this.wheel.updateTextElements();
         this.hand.updateCallbacks(this.boundPlayCallback);
         if (!this.checkForWin()) {
             this.checkForLoss();

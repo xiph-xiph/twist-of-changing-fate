@@ -52,9 +52,9 @@ export default class ConditionWheel {
 
     // checks if the wheel should be respun, then respins the wheel if necessary
     respinWheel(firstSpin = false) {
-        while (this.shouldRespin(firstSpin)) {
+        do {
             this.spinWheel(firstSpin);
-        }
+        } while (this.shouldRespin(firstSpin));
         this.spinAnimation();
     }
 
@@ -238,14 +238,6 @@ export default class ConditionWheel {
     }
 
     updateTextElements() {
-        if (this.playsUntilFreeSpin === 0) {
-            this.spinButton.classList.add("free-spin-button");
-            this.spinButton.innerText = "Free Spin!";
-        } else {
-            this.spinButton.classList.remove("free-spin-button");
-            this.spinButton.innerText = "Spin";
-        }
-
         if (this.currentCondition) {
             this.conditionNameTextElement.innerText = this.currentCondition.name + ":";
             this.conditionDescriptionTextElement.innerText = this.currentCondition.description;
@@ -253,9 +245,13 @@ export default class ConditionWheel {
             if (this.playsUntilFreeSpin < 0) {
                 this.turnsUntilFreeSpinTextElement.innerText = "";
             } else if (this.playsUntilFreeSpin === 0) {
-                this.turnsUntilFreeSpinTextElement.innerText = "Free Spin!";
+                this.turnsUntilFreeSpinTextElement.innerText = "";
+                this.spinButton.classList.add("free-spin-button");
+                this.spinButton.innerText = "Free Spin!";
             } else {
                 this.turnsUntilFreeSpinTextElement.innerText = "Free Spin in " + this.playsUntilFreeSpin + " play(s)";
+                this.spinButton.classList.remove("free-spin-button");
+                this.spinButton.innerText = "Spin";
 
             }
             if (this.playsUntilForcedSpin < 0) {
