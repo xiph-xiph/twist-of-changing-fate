@@ -115,7 +115,7 @@ export default class GameManager {
                 this.table.updateElements();
                 this.wheel.playsUntilForcedSpin--;
                 if (this.wheel.playsUntilForcedSpin == 0) {
-                    this.tryToSpinWheel(true);
+                    this.wheel.respinWheel(false);
                 }
                 if (!this.wheel.playsUntilFreeSpin == 0) {
                     this.wheel.playsUntilFreeSpin--;

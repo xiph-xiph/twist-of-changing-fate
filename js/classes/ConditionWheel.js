@@ -9,17 +9,18 @@ export default class ConditionWheel {
         this.linkElements();
         this.updateElements();
         this.updateTextElements
-        this.spinWheel(true, true);
+        this.spinWheel(true);
         this.rotationSpeed = 0;
         this.rotationSlowdown = 0.0001;
     }
 
 
-    spinWheel(free = false, firstSpin = false) {
+    spinWheel(firstSpin = false) {
         let totalWeights = 0;
         for (let condition of this.conditions) {
             if (condition.name === this.currentCondition?.name) {
                 // skip the current condition
+                console.log(`${condition.name} is the same as ${this.currentCondition.name}`);
                 continue;
             }
             if (firstSpin && condition.startingWeight) {
@@ -45,13 +46,14 @@ export default class ConditionWheel {
         }
         this.playsUntilForcedSpin = this.currentCondition?.playsUntilForcedSpin || -1;
         this.playsUntilFreeSpin = this.currentCondition?.playsUntilFreeSpin || -1;
+        this.updateTextElements();
         this.gameManager.hand.updatePlayButton();
     }
 
     // checks if the wheel should be respun, then respins the wheel if necessary
     respinWheel(firstSpin = false) {
         while (this.shouldRespin(firstSpin)) {
-            this.spinWheel(true, firstSpin);
+            this.spinWheel(firstSpin);
         }
         this.spinAnimation();
     }
