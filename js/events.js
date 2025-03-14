@@ -18,7 +18,7 @@ export default function setupEvents(game) {
     sortButton.addEventListener("click", () => { if (!game.controlsAreLocked) game.sortHand(sortBySuit, acesAreHigh) });
     spinButton.addEventListener("click", () => { if (!game.controlsAreLocked) game.tryToSpinWheel(false); });
     helpButton.addEventListener("click", () => { if (!game.controlsAreLocked) game.showHelp() });
-    resetButton.addEventListener("click", () => { if (!game.controlsAreLocked && confirm("Are you sure you want to reset the current game?")) game.restartGame() });
+    resetButton.addEventListener("click", () => { if (!game.controlsAreLocked) game.showMessage("Are you sure you want to reset the current game?", true, game.restartGame.bind(game)) });
     cycleDeckButton.addEventListener("click", () => { if (!game.controlsAreLocked) game.cycleDeck() });
     window.addEventListener("resize", () => { game.updateLayout(); });
 }

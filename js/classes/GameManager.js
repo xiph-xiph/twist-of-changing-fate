@@ -87,11 +87,11 @@ export default class GameManager {
 
     drawCard(destination = this.hand, free = false) {
         if (this.score < -this.config.drawCost && !free) {
-            alert(`It costs ${-this.config.drawCost} points to draw a card! You don't have enough left!`);
+            this.showMessage(`It costs ${-this.config.drawCost} points to draw a card! You don't have enough left!`);
             return;
         }
         if (destination === this.hand && this.hand.size >= this.config.maxHandSize) {
-            alert(`You can't have more than ${this.config.maxHandSize} cards in your hand!`);
+            this.showMessage(`You can't have more than ${this.config.maxHandSize} cards in your hand!`);
             return;
         }
         this.deck.transferClickHandler();
@@ -133,7 +133,7 @@ export default class GameManager {
     tryToSpinWheel(forceFree = false) {
         let free = this.wheel.playsUntilFreeSpin === 0 || forceFree;
         if (this.score < -this.config.spinCost && !free) {
-            alert(`It costs ${-this.config.spinCost} points to spin the wheel! You don't have enough left!`);
+            this.showMessage(`It costs ${-this.config.spinCost} points to spin the wheel! You don't have enough left!`);
             return;
         }
         if (!free) {
@@ -153,11 +153,10 @@ export default class GameManager {
 
     showWinScreen() {
         setTimeout(() => {
-            alert("YOU WIN!!!!!!!!!!");
-            alert("Your score was: " + this.score);
-            alert("Thanks for playing my game! Click the link on the bottom right to submit feedback.");
-            alert("Click OK to start over");
-            this.restartGame();
+            this.showMessage(`YOU WIN!!!!!!!!!!
+            Your score was: ${this.score}
+            Thanks for playing my game! Click the link on the bottom right to submit feedback.
+            Click OK to start over`, false, this.restartGame);
         }, 600);
     }
 
@@ -181,8 +180,7 @@ export default class GameManager {
             console.log(this.wheel.playsUntilForcedSpin);
             console.log(this.wheel.playsUntilFreeSpin);
             setTimeout(() => {
-                alert("You have no playable cards left! You lose! Click OK to start over.");
-                this.restartGame();
+                this.showMessage("You have no playable cards left! You lose! Click OK to start over.", this.restartGame);
             }, 800);
         }
     }
@@ -196,11 +194,11 @@ export default class GameManager {
     }
 
     showHelp() {
-        alert(`Welcome to Twist of Changing Fate! The goal is to play all the cards in your hand (on the bottom) onto the table (on the top).`);
-        alert(`You can play a card if it matches the condition decided by the Turntable of Fate. (on the right)`);
-        alert(`If you can't play a card, you can draw a card from the deck (on the left) by clicking it, or you can spin the Turntable of Fate, to be able to play other cards.`);
-        alert(`It costs you ${-this.config.drawCost} points to draw a card, and ${-this.config.spinCost} points to spin the Turntable of Fate.`);
-        alert(`Good luck!`);
+        this.showMessage(`Welcome to Twist of Changing Fate! The goal is to play all the cards in your hand (on the bottom) onto the table (on the top).
+        You can play a card if it matches the condition decided by the Turntable of Fate (on the right).
+        If you can't play a card, you can draw a card from the deck (on the left) by clicking it, or you can spin the Turntable of Fate, to be able to play other cards.
+        It costs you ${-this.config.drawCost} points to draw a card, and ${-this.config.spinCost} points to spin the Turntable of Fate.
+        Good luck!`);
     }
 
     // Draws 7 cards from deck to hand, and then one card from deck to table
@@ -222,6 +220,37 @@ export default class GameManager {
         }
         this.controlsAreLocked = true;
 
+    }
+
+    showMessage(message = "message", allowCancel = false, callback = null) {
+        const messageBox = document.getElementById("messageBox");
+        const messageText = document.getElementById("messageText");
+        const messageButtonOk = document.getElementById("messageButtonOk");
+        const messageButtonCancel = document.getElementById("messageButtonCancel");
+        messageBox.style.display = "flex";
+        messageText.innerText = message;
+        if (allowCancel) {
+            messageButtonCancel.style.display = "block";
+            messageButtonCancel.onclick = () => {
+                this.hideMessage();
+                this.unlockControls();
+            }
+        }
+        this.lockControls();
+        messageButtonOk.onclick = () => {
+            this.hideMessage();
+            this.unlockControls();
+            if (callback) {
+                callback();
+            }
+        }
+    }
+
+    hideMessage() {
+        const messageBox = document.getElementById("messageBox");
+        const messageButtonCancel = document.getElementById("messageButtonCancel");
+        messageButtonCancel.style.display = "";
+        messageBox.style.display = "none";
     }
 
     unlockControls() {
