@@ -18,10 +18,6 @@ export default class ConditionWheel {
     spinWheel(firstSpin = false) {
         let totalWeights = 0;
         for (let condition of this.conditions) {
-            if (condition.name === this.currentCondition?.name) {
-                // skip the current condition
-                continue;
-            }
             if (firstSpin && condition.startingWeight) {
                 totalWeights += condition.startingWeight;
             } else if (condition.weight) {
@@ -30,9 +26,6 @@ export default class ConditionWheel {
         }
         let randomWeight = Math.floor(Math.random() * totalWeights);
         for (let condition of this.conditions) {
-            if (condition.name === this?.currentCondition?.name) {
-                continue;
-            }
             if (firstSpin && condition.startingWeight) {
                 randomWeight -= condition.startingWeight;
             } else if (condition.weight) {
