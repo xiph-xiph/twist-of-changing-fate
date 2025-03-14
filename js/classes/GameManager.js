@@ -53,7 +53,8 @@ export default class GameManager {
         this.table = new CardStack(tablePosition, false, "center top");
         this.deck = new Deck(deckPosition, true, "center top", this);
         this.wheel = new ConditionWheel(this, this.config);
-        this.wheel.rotateAnimation();
+        this.wheel.drawArcs();
+        this.wheel.drawCircle();
         this.allCards = Array.from(this.deck.cards);
         this.updateScore();
     }
@@ -119,7 +120,6 @@ export default class GameManager {
                 if (!this.wheel.playsUntilFreeSpin == 0) {
                     this.wheel.playsUntilFreeSpin--;
                 }
-                this.wheel.updateElements();
             } else {
                 return;
             }
@@ -139,9 +139,7 @@ export default class GameManager {
         if (!free) {
             this.updateScore(this.config.spinCost);
         }
-        this.wheel.spinWheel(false);
         this.wheel.respinWheel(false);
-        this.wheel.updateElements()
         this.currentComboBonus = 0;
     }
 
@@ -171,7 +169,7 @@ export default class GameManager {
             }
         });
         this.wheel.currentCondition = null;
-        this.wheel.updateElements();
+        this.wheel.updateTextElements();
         this.setupGame();
         this.startGame();
     }
@@ -215,7 +213,6 @@ export default class GameManager {
         setTimeout(() => {
             this.drawCard(this.table, true);
             this.wheel.respinWheel(true);
-            this.wheel.updateElements();
         }, this.config.initialHandSize * 300);
     }
 
@@ -239,37 +236,46 @@ export default class GameManager {
     updateLayout() {
         if (window.innerWidth < window.innerHeight) {
             // portrait layout
-            this.landscape = false;
             this.gameContainer.style.zoom = window.innerHeight / 1080;
             this.deck?.updateElements(this.config.portrait.deckPosition);
             this.table?.updateElements(this.config.portrait.tablePosition);
-            this.feedbackLink.style.bottom = "64%";
-            this.feedbackLink.style.right = "16%";
-            this.handControlsContainer.style.bottom = "17%";
-            this.handControlsContainer.style.left = "43%";
-            this.gameContainer.appendChild(this.checkboxContainer);
-            this.checkboxContainer.style.position = "absolute";
-            this.checkboxContainer.style.transformOrigin = "left center";
-            this.checkboxContainer.style.transform = "translateX(50%)";
-            this.checkboxContainer.style.right = "15%";
-            this.checkboxContainer.style.bottom = "26%";
+            if (this.landscape) {
+                this.landscape = false;
+                this.feedbackLink.style.bottom = "64%";
+                this.feedbackLink.style.right = "16%";
+                this.handControlsContainer.style.bottom = "17%";
+                this.handControlsContainer.style.left = "43%";
+                this.gameContainer.appendChild(this.checkboxContainer);
+                this.checkboxContainer.style.position = "absolute";
+                this.checkboxContainer.style.transformOrigin = "left center";
+                this.checkboxContainer.style.transform = "translateX(50%)";
+                this.checkboxContainer.style.right = "15%";
+                this.checkboxContainer.style.bottom = "26%";
+                if (this.wheel) {
+                    this.wheel.updateElements(true);
+                }
+            }
         } else {
             // landscape layout
-            this.landscape = true;
             this.gameContainer.style.zoom = window.innerWidth / 1920;
             this.deck?.updateElements(this.config.landscape.deckPosition);
             this.table?.updateElements(this.config.landscape.tablePosition);
-            this.feedbackLink.style.bottom = "";
-            this.feedbackLink.style.right = "";
-            this.handControlsContainer.style.bottom = "";
-            this.handControlsContainer.style.left = "";
-            this.handControlsContainer.appendChild(this.checkboxContainer);
-            this.checkboxContainer.style.position = "";
-            this.checkboxContainer.style.transformOrigin = "";
-            this.checkboxContainer.style.transform = "";
-            this.checkboxContainer.style.right = "";
-            this.checkboxContainer.style.bottom = "";
-
+            if (!this.landscape) {
+                this.landscape = true;
+                this.feedbackLink.style.bottom = "";
+                this.feedbackLink.style.right = "";
+                this.handControlsContainer.style.bottom = "";
+                this.handControlsContainer.style.left = "";
+                this.handControlsContainer.appendChild(this.checkboxContainer);
+                this.checkboxContainer.style.position = "";
+                this.checkboxContainer.style.transformOrigin = "";
+                this.checkboxContainer.style.transform = "";
+                this.checkboxContainer.style.right = "";
+                this.checkboxContainer.style.bottom = "";
+                if (this.wheel) {
+                    this.wheel.updateElements(true);
+                }
+            }
         }
         if (this.hand) {
             this.hand.updateElements();
@@ -284,9 +290,6 @@ export default class GameManager {
         } else {
             document.body.style.transform = "";
             document.body.style.overflowY = "";
-        }
-        if (this.wheel) {
-            this.wheel.updateElements();
         }
 
     }

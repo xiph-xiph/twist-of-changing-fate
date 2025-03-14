@@ -8,8 +8,10 @@ export default class ConditionWheel {
         this.unplayableRespinChanceFirstSpin = config.unplayableRespinChanceFirstSpin;
         this.linkElements();
         this.updateElements();
+        this.updateTextElements
         this.spinWheel(true, true);
         this.rotationSpeed = 0;
+        this.rotationSlowdown = 0.0001;
     }
 
 
@@ -51,7 +53,7 @@ export default class ConditionWheel {
         while (this.shouldRespin(firstSpin)) {
             this.spinWheel(true, firstSpin);
         }
-        this.rotationSpeed += 0.03;
+        this.spinAnimation();
     }
 
 
@@ -179,16 +181,27 @@ export default class ConditionWheel {
         this.canvasContext.stroke();
     }
 
-    rotateAnimation() {
+    spinAnimation(lockControls = true, first = true) {
+        if (lockControls) {
+            this.gameManager.lockControls();
+        }
+        if (first) {
+            this.rotationSpeed = 0.03;
+            this.updateTextElements();
+        }
         this.canvasContext.rotate(this.rotationSpeed);
         this.drawArcs();
         this.drawCircle();
         if (this.rotationSpeed > 0) {
-            this.rotationSpeed -= 0.0001;
+            this.rotationSpeed -= this.rotationSlowdown;
+            requestAnimationFrame(() => this.spinAnimation(lockControls, false));
         } else {
             this.rotationSpeed = 0;
+            if (lockControls) {
+                this.gameManager.unlockControls();
+                this.updateTextElements();
+            }
         }
-        requestAnimationFrame(() => this.rotateAnimation());
     }
 
     updateElements() {
@@ -218,7 +231,11 @@ export default class ConditionWheel {
         this.canvasElement.height = this.wheelSize;
         this.canvasContext = this.canvasElement.getContext("2d");
         this.canvasContext.translate(this.wheelSize / 2, this.wheelSize / 2);
+        this.drawArcs();
+        this.drawCircle();
+    }
 
+    updateTextElements() {
         if (this.playsUntilFreeSpin === 0) {
             this.spinButton.classList.add("free-spin-button");
             this.spinButton.innerText = "Free Spin!";
@@ -244,13 +261,21 @@ export default class ConditionWheel {
             } else {
                 this.turnUntilForcedSpinTextElement.innerText = "Forced Spin in " + this.playsUntilForcedSpin + " play(s)";
             }
-        } else {
+        }
+        else {
             if (this.conditionNameTextElement) {
                 this.conditionNameTextElement.innerText = "";
                 this.conditionDescriptionTextElement.innerText = "";
                 this.turnsUntilFreeSpinTextElement.innerText = "";
                 this.turnUntilForcedSpinTextElement.innerText = "";
             }
+        }
+
+        if (this.gameManager.controlsAreLocked) {
+            this.conditionNameTextElement.innerText = "";
+            this.conditionDescriptionTextElement.innerText = "";
+            this.turnsUntilFreeSpinTextElement.innerText = "";
+            this.turnUntilForcedSpinTextElement.innerText = "";
         }
     }
 }
