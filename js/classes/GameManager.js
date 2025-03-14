@@ -175,7 +175,7 @@ export default class GameManager {
     }
 
     checkForLoss() {
-        if (this.score < 5 && !this.wheel.anyCardIsPlayableInStack(this.hand) && !(this.wheel.playsUntilForcedSpin === 0 || this.wheel.playsUntilFreeSpin === 0)) {
+        if ((this.score < this.config.drawCost || this.hand.size == this.config.maxHandSize) && !this.wheel.anyCardIsPlayableInStack(this.hand) && !(this.wheel.playsUntilForcedSpin === 0 || this.wheel.playsUntilFreeSpin === 0)) {
             setTimeout(() => {
                 this.showMessage("You have no playable cards left! You lose! Click OK to start over.", this.restartGame);
             }, 800);
