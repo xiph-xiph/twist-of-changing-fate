@@ -20,7 +20,6 @@ export default class ConditionWheel {
         for (let condition of this.conditions) {
             if (condition.name === this.currentCondition?.name) {
                 // skip the current condition
-                console.log(`${condition.name} is the same as ${this.currentCondition.name}`);
                 continue;
             }
             if (firstSpin && condition.startingWeight) {
