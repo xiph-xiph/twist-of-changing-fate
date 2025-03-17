@@ -240,6 +240,8 @@ export default class ConditionWheel {
 
             if (this.playsUntilFreeSpin < 0) {
                 this.turnsUntilFreeSpinTextElement.innerText = "";
+                this.spinButton.classList.remove("free-spin-button");
+                this.spinButton.innerText = "Spin";
             } else if (this.playsUntilFreeSpin === 0) {
                 this.turnsUntilFreeSpinTextElement.innerText = "";
                 this.spinButton.classList.add("free-spin-button");
