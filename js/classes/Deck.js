@@ -28,6 +28,10 @@ export default class Deck extends CardStack {
 
     // Assigns a callback function to be executed when the top card is clicked
     assignClickHandler(func = null) {
+        if (!this.topCard) {
+            console.error("No top card to assign click handler to.");
+            return;
+        }
         this.topCard.onClickCallback = func;
     }
 
