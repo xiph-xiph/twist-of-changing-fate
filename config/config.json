@@ -182,6 +182,16 @@
       "comboScore": 8
     },
     {
+      "name": "Fibonacci",
+      "displayname": "You're Fibonacci-pilled",
+      "description": "You can only play cards with ranks that exist in the Fibonacci sequence (Ace, 2, 3, 5, 8).",
+      "playsUntilForcedSpin": -1,
+      "playsUntilFreeSpin": 3,
+      "weight": 40,
+      "scoreForPlaying": 12,
+      "comboScore": 4
+    },
+    {
       "name": "Wildcard",
       "displayname": "Wildcard",
       "description": "For your next play, you can play any card.",

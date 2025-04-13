@@ -125,6 +125,8 @@ export default class ConditionWheel {
                 return cardInHand.rank > cardOnTable.rank || cardInHand.rank === 1 && cardOnTable !== 1;
             case "SumToTen":
                 return cardInHand.rank + cardOnTable.rank === 10;
+            case "Fibonacci":
+                return cardInHand.rank === 1 || cardInHand.rank === 2 || cardInHand.rank === 3 || cardInHand.rank === 5 || cardInHand.rank === 8;
             case "Wildcard":
             default:
                 return true;
