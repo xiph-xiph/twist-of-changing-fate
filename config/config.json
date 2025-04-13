@@ -2,6 +2,7 @@
   "conditions": [
     {
       "name": "SameRankOrSuit",
+      "displayname": "Samesies",
       "description": "You can play a card with the same rank or the same suit as the card above.",
       "playsUntilForcedSpin": -1,
       "playsUntilFreeSpin": 3,
@@ -11,6 +12,7 @@
     },
     {
       "name": "RankAscendingOrDescending",
+      "displayname": "1-Step",
       "description": "You can play a card that is one rank higher or lower than the card above.",
       "playsUntilForcedSpin": -1,
       "playsUntilFreeSpin": 2,
@@ -20,6 +22,7 @@
     },
     {
       "name": "OddRank",
+      "displayname": "Odd Scott",
       "description": "You can only play cards with odd ranks.",
       "playsUntilForcedSpin": 4,
       "playsUntilFreeSpin": -1,
@@ -29,6 +32,7 @@
     },
     {
       "name": "EvenRank",
+      "displayname": "Even Eve",
       "description": "You can only play cards with even ranks.",
       "playsUntilForcedSpin": 4,
       "playsUntilFreeSpin": -1,
@@ -38,6 +42,7 @@
     },
     {
       "name": "SameColor",
+      "displayname": "MLK Thought This Wasn't Cool",
       "description": "You can only play cards of the same color (red or black).",
       "playsUntilForcedSpin": 4,
       "playsUntilFreeSpin": -1,
@@ -47,6 +52,7 @@
     },
     {
       "name": "PrimeRank",
+      "displayname": "Prime Time",
       "description": "You can only play cards with prime-numbered ranks (2, 3, 5, or 7).",
       "playsUntilForcedSpin": -1,
       "playsUntilFreeSpin": 2,
@@ -56,6 +62,7 @@
     },
     {
       "name": "FaceCardsOnly",
+      "displayname": "Show Your Face",
       "description": "You can only play face cards (Jack, Queen, King).",
       "playsUntilForcedSpin": -1,
       "playsUntilFreeSpin": 2,
@@ -65,6 +72,7 @@
     },
     {
       "name": "LowerOrHigherByTwo",
+      "displayname": "2-Step",
       "description": "You must play a card that is exactly two ranks higher or lower than the card above.",
       "playsUntilForcedSpin": -1,
       "playsUntilFreeSpin": 2,
@@ -74,6 +82,7 @@
     },
     {
       "name": "NoRepeatSuit",
+      "displayname": "No Dupes",
       "description": "You cannot play a card if its suit has been played before.",
       "playsUntilForcedSpin": 3,
       "playsUntilFreeSpin": -1,
@@ -84,6 +93,7 @@
     },
     {
       "name": "OnlyAces",
+      "displayname": "That's Ace!",
       "description": "You can only play aces.",
       "playsUntilForcedSpin": -1,
       "playsUntilFreeSpin": 1,
@@ -93,6 +103,7 @@
     },
     {
       "name": "OnlyClubs",
+      "displayname": "Let's Go Clubbing",
       "description": "You can only play Clubs.",
       "playsUntilForcedSpin": -1,
       "playsUntilFreeSpin": 2,
@@ -102,6 +113,7 @@
     },
     {
       "name": "OnlyDiamonds",
+      "displayname": "Girl's Best Friend",
       "description": "You can only play Diamonds.",
       "playsUntilForcedSpin": -1,
       "playsUntilFreeSpin": 2,
@@ -111,6 +123,7 @@
     },
     {
       "name": "OnlyHearts",
+      "displayname": "Eat Your Heart Out",
       "description": "You can only play Hearts.",
       "playsUntilForcedSpin": -1,
       "playsUntilFreeSpin": 2,
@@ -120,6 +133,7 @@
     },
     {
       "name": "OnlySpades",
+      "displayname": "Do The Spadework",
       "description": "You can only play Spades.",
       "playsUntilForcedSpin": -1,
       "playsUntilFreeSpin": 2,
@@ -129,6 +143,7 @@
     },
     {
       "name": "MultipleOfThreeRank",
+      "displayname": "Threeway Or The Freeway",
       "description": "You can only play cards with ranks that are multiples of 3 (3, 6, or 9).",
       "playsUntilForcedSpin": -1,
       "playsUntilFreeSpin": 2,
@@ -138,6 +153,7 @@
     },
     {
       "name": "MustBeLower",
+      "displayname": "Down We Go",
       "description": "You can only play a card with a lower rank than the card above.",
       "playsUntilForcedSpin": 5,
       "playsUntilFreeSpin": -1,
@@ -147,6 +163,7 @@
     },
     {
       "name": "MustBeHigher",
+      "displayname": "Only Up From Here",
       "description": "You can only play a card with a higher rank than the card above.",
       "playsUntilForcedSpin": 5,
       "playsUntilFreeSpin": -1,
@@ -156,6 +173,7 @@
     },
     {
       "name": "SumToTen",
+      "displayname": "Ten To Win",
       "description": "The rank of the played card and the card above must sum to 10.",
       "playsUntilForcedSpin": -1,
       "playsUntilFreeSpin": 1,
@@ -165,6 +183,7 @@
     },
     {
       "name": "Wildcard",
+      "displayname": "Wildcard",
       "description": "For your next play, you can play any card.",
       "playsUntilForcedSpin": 1,
       "playsUntilFreeSpin": -1,
@@ -175,6 +194,7 @@
     },
     {
       "name": "Wildcard",
+      "displayname": "Wildcard",
       "description": "For your next two plays, you can play any card.",
       "playsUntilForcedSpin": 2,
       "playsUntilFreeSpin": -1,
@@ -185,6 +205,7 @@
     },
     {
       "name": "Wildcard",
+      "displayname": "Wildcard",
       "description": "For your next three plays, you can play any card.",
       "playsUntilForcedSpin": 3,
       "playsUntilFreeSpin": -1,
@@ -195,6 +216,7 @@
     },
     {
       "name": "Wildcard",
+      "displayname": "Wildcard",
       "description": "For your next four plays, you can play any card.",
       "playsUntilForcedSpin": 4,
       "playsUntilFreeSpin": -1,

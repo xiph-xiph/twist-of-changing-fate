@@ -235,7 +235,7 @@ export default class ConditionWheel {
 
     updateTextElements() {
         if (this.currentCondition) {
-            this.conditionNameTextElement.innerText = this.currentCondition.name + ":";
+            this.conditionNameTextElement.innerText = this.currentCondition.displayname + ":";
             this.conditionDescriptionTextElement.innerText = this.currentCondition.description;
 
             if (this.playsUntilFreeSpin < 0) {
