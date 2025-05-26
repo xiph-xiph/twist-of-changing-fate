@@ -42,7 +42,7 @@
     },
     {
       "name": "SameColor",
-      "displayname": "MLK Thought This Wasn't Cool",
+      "displayname": "Color Match",
       "description": "You can only play cards of the same color (red or black).",
       "playsUntilForcedSpin": 4,
       "playsUntilFreeSpin": -1,
@@ -143,7 +143,7 @@
     },
     {
       "name": "MultipleOfThreeRank",
-      "displayname": "Threeway Or The Freeway",
+      "displayname": "Thrice Is Nice",
       "description": "You can only play cards with ranks that are multiples of 3 (3, 6, or 9).",
       "playsUntilForcedSpin": -1,
       "playsUntilFreeSpin": 2,
@@ -183,7 +183,7 @@
     },
     {
       "name": "Fibonacci",
-      "displayname": "You're Fibonacci-pilled",
+      "displayname": "Fibbo-Flow",
       "description": "You can only play cards with ranks that exist in the Fibonacci sequence (Ace, 2, 3, 5, 8).",
       "playsUntilForcedSpin": -1,
       "playsUntilFreeSpin": 3,
