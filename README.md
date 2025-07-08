@@ -72,7 +72,7 @@ root/
 
 ## Configuration
 
-### `config.json`
+### `config/config.json`
 
 This file allows for easy customization of game parameters on your own deployment of the game. Modify settings such as the points cost for drawing cards or spinning the Turntable of Fate.
 
